@@ -15,7 +15,9 @@ class CreatePostLangTable extends Migration
     {
         Schema::create('post_lang', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('lang_id')->nullable();
             $table->foreign('lang_id')->references('id')->on('langs');
+            $table->unsignedBigInteger('post_id')->nullable();
             $table->foreign('post_id')->references('id')->on('posts');
             $table->string('title');
             $table->text('description');

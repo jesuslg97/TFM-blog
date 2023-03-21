@@ -15,7 +15,9 @@ class CreateCategoryLangTable extends Migration
     {
         Schema::create('category_lang', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('lang_id')->nullable();
             $table->foreign('lang_id')->references('id')->on('langs');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->string('name');
             $table->text('description');
