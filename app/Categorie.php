@@ -9,4 +9,9 @@ class Categorie extends Model
 {
     protected $table = 'categories';
     use SoftDeletes;
+
+    public function categorieLangs()
+    {
+        return $this->hasMany(CategoryLang::class);
+    }
 }

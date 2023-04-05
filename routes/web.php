@@ -14,3 +14,65 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/registrar', 'HomeController@registrar')->name('registrar');
+
+Route::prefix('categories')->group(function () {
+    Route::match(['get', 'post'], '/', 'CategorieController@index')->name('categories.index');
+    Route::get('/create', 'CategorieController@create')->name('categories.create');
+    Route::post('/store', 'CategorieController@store')->name('categories.store');
+    Route::get('/{category}/edit', 'CategorieController@edit')->name('categories.edit');
+    Route::post('/{category}/update', 'CategorieController@update')->name('categories.update');
+    Route::delete('/{category}/delete', 'CategorieController@delete')->name('categories.delete');
+});
+
+Route::prefix('posts')->group(function () {
+    Route::match(['get', 'post'], '/', 'PostController@index')->name('posts.index');
+    Route::get('/create', 'PostController@create')->name('posts.create');
+    Route::post('/store', 'PostController@store')->name('posts.store');
+    Route::get('/{post}/edit', 'PostController@edit')->name('posts.edit');
+    Route::post('/{post}/update', 'PostController@update')->name('posts.update');
+    Route::delete('/{post}/delete', 'PostController@delete')->name('posts.delete');
+});
+
+Route::prefix('comments')->middleware('auth')->group(function () {
+    Route::match(['get', 'post'], '/', 'CommentController@index')->name('comments.index');
+    Route::get('/create', 'CommentController@create')->name('comments.create');
+    Route::post('/store', 'CommentController@store')->name('comments.store');
+    Route::get('/{comment}/edit', 'CommentController@edit')->name('comments.edit');
+    Route::post('/{comment}/update', 'CommentController@update')->name('comments.update');
+    Route::delete('/{comment}/delete', 'CommentController@delete')->name('comments.delete');
+});
+
+Route::prefix('langs')->group(function () {
+    Route::match(['get', 'post'], '/', 'LangController@index')->name('langs.index');
+    Route::post('/find','LangController@find')->name('langs.find');
+    Route::get('/create', 'LangController@create')->name('langs.create');
+    Route::post('/store', 'LangController@store')->name('langs.store');
+    Route::get('/{lang}/edit', 'LangController@edit')->name('langs.edit');
+    Route::post('/{lang}/update', 'LangController@update')->name('langs.update');
+    Route::delete('/{lang}/delete', 'LangController@delete')->name('langs.delete');
+});
+
+Route::prefix('categoryLangs')->group(function () {
+    Route::match(['get', 'post'], '/', 'CategoryLangController@index')->name('categoryLangs.index');
+    Route::post('/find','CategoryLangController@find')->name('categoryLangs.find');
+    Route::get('/create', 'CategoryLangController@create')->name('categoryLangs.create');
+    Route::post('/store', 'CategoryLangController@store')->name('categoryLangs.store');
+    Route::get('/{categoryLang}/edit', 'CategoryLangController@edit')->name('categoryLangs.edit');
+    Route::post('/{categoryLang}/update', 'CategoryLangController@update')->name('categoryLangs.update');
+    Route::delete('/{categoryLang}/delete', 'CategoryLangController@delete')->name('categoryLangs.delete');
+});
+
+Route::prefix('postLangs')->group(function () {
+    Route::match(['get', 'post'], '/', 'PostLangController@index')->name('postLangs.index');
+    Route::post('/find','PostLangController@find')->name('postLangs.find');
+    Route::get('/create', 'PostLangController@create')->name('postLangs.create');
+    Route::post('/store', 'PostLangController@store')->name('postLangs.store');
+    Route::get('/{postLang}/edit', 'PostLangController@edit')->name('postLangs.edit');
+    Route::post('/{postLang}/update', 'PostLangController@update')->name('postLangs.update');
+    Route::delete('/{postLang}/delete', 'PostLangController@delete')->name('postLangs.delete');
+});
