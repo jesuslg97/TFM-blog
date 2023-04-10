@@ -18,7 +18,7 @@ class CategorieController extends Controller
         if($request->has('categoryImage')) {
 
             $categoryImage = $request->categoryImage;
-            $categories = Categorie::where('name', 'like', '%'. $categoryImage . '%')->paginate(self::PAGINATE_SIZE);
+            $categories = Categorie::where('image_path', 'like', '%'. $categoryImage . '%')->paginate(self::PAGINATE_SIZE);
         } else {
             $categories = Categorie::paginate(self::PAGINATE_SIZE);
 
