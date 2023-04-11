@@ -17,6 +17,6 @@ class PostLang extends Model
 
     public function Langs()
     {
-        return $this->belongsTo(Lang::class,'lang_id');
+        return $this->belongsTo(Language::class,'lang_id');
     }
 }

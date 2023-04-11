@@ -47,14 +47,13 @@ Route::prefix('comments')->middleware('auth')->group(function () {
     Route::delete('/{comment}/delete', 'CommentController@delete')->name('comments.delete');
 });
 
-Route::prefix('langs')->group(function () {
-    Route::match(['get', 'post'], '/', 'LangController@index')->name('langs.index');
-    Route::post('/find','LangController@find')->name('langs.find');
-    Route::get('/create', 'LangController@create')->name('langs.create');
-    Route::post('/store', 'LangController@store')->name('langs.store');
-    Route::get('/{lang}/edit', 'LangController@edit')->name('langs.edit');
-    Route::post('/{lang}/update', 'LangController@update')->name('langs.update');
-    Route::delete('/{lang}/delete', 'LangController@delete')->name('langs.delete');
+Route::prefix('languages')->group(function () {
+    Route::match(['get', 'post'], '/', 'LanguageController@index')->name('languages.index');
+    Route::get('/create', 'LanguageController@create')->name('languages.create');
+    Route::post('/store', 'LanguageController@store')->name('languages.store');
+    Route::get('/{lang}/edit', 'LanguageController@edit')->name('languages.edit');
+    Route::post('/{lang}/update', 'LanguageController@update')->name('languages.update');
+    Route::delete('/{lang}/delete', 'LanguageController@delete')->name('languages.delete');
 });
 
 Route::prefix('categoryLangs')->group(function () {

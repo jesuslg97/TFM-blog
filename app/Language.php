@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Lang extends Model
+class Language extends Model
 {
     protected $table = 'langs';
     use SoftDeletes;
