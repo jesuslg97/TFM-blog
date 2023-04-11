@@ -56,14 +56,13 @@ Route::prefix('languages')->group(function () {
     Route::delete('/{lang}/delete', 'LanguageController@delete')->name('languages.delete');
 });
 
-Route::prefix('categoryLangs')->group(function () {
-    Route::match(['get', 'post'], '/', 'CategoryLangController@index')->name('categoryLangs.index');
-    Route::post('/find','CategoryLangController@find')->name('categoryLangs.find');
-    Route::get('/create', 'CategoryLangController@create')->name('categoryLangs.create');
-    Route::post('/store', 'CategoryLangController@store')->name('categoryLangs.store');
-    Route::get('/{categoryLang}/edit', 'CategoryLangController@edit')->name('categoryLangs.edit');
-    Route::post('/{categoryLang}/update', 'CategoryLangController@update')->name('categoryLangs.update');
-    Route::delete('/{categoryLang}/delete', 'CategoryLangController@delete')->name('categoryLangs.delete');
+Route::prefix('categoriesLang')->group(function () {
+    Route::match(['get', 'post'], '/', 'CategoryLangController@index')->name('categoriesLang.index');
+    Route::get('/create', 'CategoryLangController@create')->name('categoriesLang.create');
+    Route::post('/store', 'CategoryLangController@store')->name('categoriesLang.store');
+    Route::get('/{categoryLang}/edit', 'CategoryLangController@edit')->name('categoriesLang.edit');
+    Route::post('/{categoryLang}/update', 'CategoryLangController@update')->name('categoriesLang.update');
+    Route::delete('/{categoryLang}/delete', 'CategoryLangController@delete')->name('categoriesLang.delete');
 });
 
 Route::prefix('postLangs')->group(function () {

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CategoryLang extends Model
 {
-    protected $table = 'categoryLangs';
+    protected $table = 'category_lang';
     use SoftDeletes;
 
     public function Categories()
