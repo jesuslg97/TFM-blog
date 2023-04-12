@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PostLang extends Model
 {
-    protected $table = 'postLangs';
+    protected $table = 'post_lang';
     use SoftDeletes;
 
     public function Posts()
