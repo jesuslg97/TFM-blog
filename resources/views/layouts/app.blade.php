@@ -49,20 +49,27 @@
             <div class="collapse navbar-collapse">
                 <ul class="col-md-10 navbar-nav m-auto text-center text-white">
                     <li class="col-md-2 nav-item">
-                        Blog
+                        <a class="nav-link text-white" href="#">Blog</a>
                     </li>
                     <li class="col-md-2 nav-item">
-                        Categorías
+                        <a class="dropdown-toggle" type="button" data-toggle="dropdown">Categorías
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu nav-item">
+                            <li class="nav-item"><a href="#">Seguridad</a></li>
+                            <li class="nav-item"><a href="#">Dispositivos/periféricos</a></li>
+                            <li class="nav-item"><a href="#">Noticias</a></li>
+                        </ul>
                     </li>
                     <li class="col-md-2 nav-item">
-                        Últimos post
+                        <a class="nav-link text-white" href="#">Últimos post</a>
                     </li>
 
                     <li class="col-md-2 nav-item">
-                        Quiénes somos
+                        <a class="nav-link text-white" href="#">Quiénes somos</a>
                     </li>
                     <li class="col-md-1 nav-item">
-                        Contacto
+                        <a class="nav-link text-white" href="#">Contacto</a>
                     </li>
                 </ul>
             </div>
