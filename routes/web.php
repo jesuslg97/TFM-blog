@@ -44,6 +44,7 @@ Route::prefix('posts')->group(function () {
     Route::get('/{post}/edit', 'PostController@edit')->name('posts.edit');
     Route::post('/{post}/update', 'PostController@update')->name('posts.update');
     Route::delete('/{post}/delete', 'PostController@delete')->name('posts.delete');
+    Route::get('/{post}/show', 'PostController@show')->name('posts.show');
 });
 
 Route::prefix('comments')->middleware('auth')->group(function () {
@@ -80,4 +81,5 @@ Route::prefix('postsLang')->group(function () {
     Route::get('/{postLang}/edit', 'PostLangController@edit')->name('postsLang.edit');
     Route::post('/{postLang}/update', 'PostLangController@update')->name('postsLang.update');
     Route::delete('/{postLang}/delete', 'PostLangController@delete')->name('postsLang.delete');
+    Route::get('/{postLang}/show', 'PostLangController@show')->name('postLang.show');
 });

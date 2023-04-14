@@ -12,7 +12,7 @@
                 <h1>{{__('string.create_post')}}</h1>
             </div>
 
-            <form name="create_serie" action="{{ route('posts.store') }}" method="post">
+            <form name="create_post" action="{{ route('posts.store') }}" method="post">
                 @csrf
                 <div class="row col-12">
 

@@ -26,15 +26,12 @@
                         @foreach($posts as $post)
                             <tr>
                                 <td>{{$post->id}}</td>
-                                <td>{{$post->category_id}}</td>
-                                <td>{{$post->image_path}}</td>
-                                <td>
-                                    @foreach($categories as $category)
+                                <td>@foreach($categories as $category)
                                         @if($category->id == $post->id)
                                             {{$category->image_path}}
                                         @endif
-                                    @endforeach
-                                </td>
+                                    @endforeach</td>
+                                <td>{{$post->image_path}}</td>
 
                                 <td>
                                     <a class="btn btn-success mb-1" href="{{ route('posts.edit', $post->id) }}">Editar</a>

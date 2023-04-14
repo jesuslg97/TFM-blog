@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Categorie;
+use App\CategoryLang;
 
 use App\Post;
 use Illuminate\Http\Request;
@@ -46,13 +47,14 @@ class PostController extends Controller
 
         }
 
-        return view('posts.index', ['posts'=>$posts, 'postCategory'=>$postCategory, 'postImage'=>$postImage]);
+        return view('posts.index', ['posts'=>$posts, 'categories'=>$categories,'postCategory'=>$postCategory, 'postImage'=>$postImage]);
     }
 
     public function create(){
         $categories = Categorie::all();
+        $categoriesLang = CategoryLang::all();
 
-        return view('posts.create',['categories'=> $categories]);
+        return view('posts.create',['categories'=> $categories, 'categoriesLang'=>$categoriesLang]);
     }
 
     public function store(Request $request){
@@ -68,8 +70,9 @@ class PostController extends Controller
 
     public function edit(Post $post){
         $categories = Categorie::all();
+        $categoriesLang = CategoryLang::all();
 
-        return view('posts.edit', ['post'=>$post]);
+        return view('posts.edit', ['post'=>$post, 'categories'=>$categories, 'categoriesLang'=>$categoriesLang]);
     }
 
     public function update(Request $request, Post $post){
@@ -87,6 +90,10 @@ class PostController extends Controller
             return redirect()->route('posts.index')->with('success', Lang::get('alerts.posts_delete_successfully'));
         }
         return redirect()->route('posts.index')->with('error', Lang::get('alerts.posts_delete_error'));
+    }
+
+    public function show(Request $request) {
+
     }
 
     protected function validatePost($request) {

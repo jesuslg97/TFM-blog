@@ -23,6 +23,7 @@
                     <div class="card">
                         <div class="card-body text-center" style="border: 4px solid #F4600C;">
                             <h5 class="card-title"><strong>Seguridad</strong></h5>
+                            <img src="{{asset('/public/images/Categoria_seguridad.PNG')}}" alt="imagen categoría seguridad">
                             <p class="card-text">Listado de los posts relacionados con la seguridad.</p>
                             <a class="btn text-white" style="background-color: #F4600C" href="{{route('categories.index')}}">Posts sobre seguridad</a>
                         </div>
@@ -33,6 +34,7 @@
                     <div class="card">
                         <div class="card-body text-center" style="border: 4px solid #F4600C;">
                             <h5 class="card-title"><strong>Dispositivos/Periféricos</strong></h5>
+                            <img src="{{asset('/public/images/Categoria_dispositivo-periferico.PNG')}}" alt="imagen categoría dispositivo/periferico">
                             <p class="card-text">Listado de los posts relacionados con los dispositivos.</p>
                             <a class="btn text-white" style="background-color: #F4600C" href="{{route('categories.index')}}">Posts sobre dispositivos</a>
                         </div>
@@ -43,6 +45,7 @@
                     <div class="card">
                         <div class="card-body text-center" style="border: 4px solid #F4600C;">
                             <h5 class="card-title"><strong>Noticias</strong></h5>
+                            <img src="{{asset('/public/images/Categoria_noticias.PNG')}}" alt="imagen categoría noticias">
                             <p class="card-text">Listado de los posts relacionados con Internet.</p>
                             <a class="btn text-white" style="background-color: #F4600C" href="{{route('categories.index')}}">Posts sobre Internet</a>
                         </div>
