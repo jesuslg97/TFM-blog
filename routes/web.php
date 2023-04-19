@@ -15,15 +15,12 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/aboutUs', function () {
-    return view('aboutUs');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
 Auth::routes();
+
+Route::get('/welcome', 'Controller@welcome')->name('welcome');
+
+Route::get('/aboutUs', 'Controller@aboutUs')->name('aboutUs');
+Route::get('/contact', 'Controller@contact')->name('contact');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/registrar', 'HomeController@registrar')->name('registrar');

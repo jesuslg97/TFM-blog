@@ -49,7 +49,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="col-md-10 navbar-nav m-auto text-center text-white">
                     <li class="col-md-2 nav-item">
-                        <a class="nav-link text-white" href="#">Blog</a>
+                        <a class="nav-link text-white" href="{{ route('welcome') }}">Blog</a>
                     </li>
                     <li class="col-md-2 nav-item">
                         <a class="dropdown-toggle" type="button" data-toggle="dropdown">Categorías
@@ -66,10 +66,10 @@
                     </li>
 
                     <li class="col-md-2 nav-item">
-                        <a class="nav-link text-white" href="#">Quiénes somos</a>
+                        <a class="nav-link text-white" href="{{ route('aboutUs') }}">Quiénes somos</a>
                     </li>
                     <li class="col-md-1 nav-item">
-                        <a class="nav-link text-white" href="#">Contacto</a>
+                        <a class="nav-link text-white" href="{{ route('contact') }}">Contacto</a>
                     </li>
                 </ul>
             </div>
