@@ -51,14 +51,14 @@
                     <li class="col-md-2 nav-item">
                         <a class="nav-link text-white" href="{{ route('welcome') }}">Blog</a>
                     </li>
-                    <li class="col-md-2 nav-item">
-                        <a class="dropdown-toggle" type="button" data-toggle="dropdown">Categorías
-                            <span class="caret"></span>
+                    <li class="col-md-2 nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Categorías<span class="caret"></span>
                         </a>
-                        <ul class="dropdown-menu nav-item">
-                            <li class="nav-item"><a href="#">Seguridad</a></li>
-                            <li class="nav-item"><a href="#">Dispositivos/periféricos</a></li>
-                            <li class="nav-item"><a href="#">Noticias</a></li>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-item"><a href="#">Seguridad</a></li>
+                            <li class="dropdown-item"><a href="#">Dispositivos/periféricos</a></li>
+                            <li class="dropdown-item"><a href="#">Noticias</a></li>
                         </ul>
                     </li>
                     <li class="col-md-2 nav-item">
@@ -82,16 +82,16 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                            @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
