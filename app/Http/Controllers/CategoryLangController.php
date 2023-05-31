@@ -48,6 +48,8 @@ class CategoryLangController extends Controller
         $categoryLang = new CategoryLang();
         $categoryLang->name = $request->name;
         $categoryLang->description = $request->description;
+        $categoryLang->category_id = $request->categoryId;
+        $categoryLang->lang_id = $request->langID;
         $categoryLang->save();
 
         return redirect()->route('categoriesLang.index')->with('success', Lang::get('alerts.categoryLangs_created_successfully'));
@@ -65,6 +67,8 @@ class CategoryLangController extends Controller
 
         $categoryLang->name = $request->name;
         $categoryLang->description = $request->description;
+        $categoryLang->category_id = $request->categoryId;
+        $categoryLang->lang_id = $request->langID;
         $categoryLang->save();
 
         return redirect()->route('categoriesLang.index')->with('success', Lang::get('alerts.categoryLangs_update_successfully'));

@@ -35,9 +35,9 @@
                     </div>
 
                     <div class="col-4 mt-3">
-                        <label for="languages" class="form-label">{{__('string.lang_name')}}</label>
+                        <label for="langID" class="form-label">{{__('string.lang_name')}}</label>
                         <br>
-                        <select name="languages" id="languages" class="form-select" aria-label="Default select example">
+                        <select name="langID" id="langID" class="form-select" aria-label="Default select example">
 
                             @foreach($languages as $language)
                                 @if($language->id == $postLang->lang_id)
@@ -50,9 +50,9 @@
                     </div>
 
                     <div class="col-4 mt-3">
-                        <label for="posts" class="form-label">{{__('string.posts_image_path')}}</label>
+                        <label for="postId" class="form-label">{{__('string.posts_image_path')}}</label>
                         <br>
-                        <select name="posts" id="posts" class="form-select" aria-label="Default select example">
+                        <select name="postId" id="postId" class="form-select" aria-label="Default select example">
 
                             @foreach($posts as $post)
                                 @if($post->id == $postLang->post_id)

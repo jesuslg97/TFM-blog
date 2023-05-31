@@ -29,9 +29,9 @@
                     </div>
 
                     <div class="col-4 mt-3">
-                        <label for="languages" class="form-label">{{__('string.lang_name')}}</label>
+                        <label for="langID" class="form-label">{{__('string.lang_name')}}</label>
                         <br>
-                        <select name="languages" id="languages" class="form-select" aria-label="Default select example">
+                        <select name="langID" id="langID" class="form-select" aria-label="Default select example">
 
                             @foreach($languages as $language)
                                 @if($language->id == $categoryLang->lang_id)
@@ -44,9 +44,9 @@
                     </div>
 
                     <div class="col-4 mt-3">
-                        <label for="categories" class="form-label">{{__('string.lang_name')}}</label>
+                        <label for="categoryId" class="form-label">{{__('string.lang_name')}}</label>
                         <br>
-                        <select name="categories" id="categories" class="form-select" aria-label="Default select example">
+                        <select name="categoryId" id="categoryId" class="form-select" aria-label="Default select example">
 
                             @foreach($categories as $category)
                                 @if($category->id == $categoryLang->category_id)

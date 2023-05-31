@@ -51,6 +51,8 @@ class PostLangController extends Controller
         $postLang->title = $request->title;
         $postLang->description = $request->description;
         $postLang->information = $request->information;
+        $postLang->post_id = $request->postId;
+        $postLang->lang_id = $request->langID;
         $postLang->save();
 
         return redirect()->route('postsLang.index')->with('success', Lang::get('alerts.postsLangs_created_successfully'));
@@ -69,6 +71,8 @@ class PostLangController extends Controller
         $postLang->title = $request->title;
         $postLang->description = $request->description;
         $postLang->information = $request->information;
+        $postLang->post_id = $request->postId;
+        $postLang->lang_id = $request->langID;
         $postLang->save();
 
         return redirect()->route('postsLang.index')->with('success', Lang::get('alerts.postsLangs_update_successfully'));

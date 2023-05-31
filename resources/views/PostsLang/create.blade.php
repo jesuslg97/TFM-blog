@@ -35,9 +35,9 @@
                     </div>
 
                     <div class="col-4 mt-3">
-                        <label for="languages" class="form-label">{{__('string.lang_name')}}</label>
+                        <label for="langID" class="form-label">{{__('string.lang_name')}}</label>
                         <br>
-                        <select name="languages" id="languages" class="form-select" aria-label="Default select example">
+                        <select name="langID" id="langID" class="form-select" aria-label="Default select example">
                             <option selected>Elige un idioma</option>
                             @foreach($languages as $language)
                                 <option value="{{$language->id}}">{{$language->name}}</option>
@@ -46,9 +46,9 @@
                     </div>
 
                     <div class="col-4 mt-3">
-                        <label for="posts" class="form-label">{{__('string.post_image_path')}}</label>
+                        <label for="postId" class="form-label">{{__('string.post_image_path')}}</label>
                         <br>
-                        <select name="posts" id="posts" class="form-select" aria-label="Default select example">
+                        <select name="postId" id="postId" class="form-select" aria-label="Default select example">
                             <option selected>Elige un post</option>
                             @foreach($posts as $post)
                                 <option value="{{$post->id}}">{{$post->image_path}}</option>
