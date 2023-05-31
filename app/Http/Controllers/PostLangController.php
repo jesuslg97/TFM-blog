@@ -86,8 +86,9 @@ class PostLangController extends Controller
         return redirect()->route('postsLang.index')->with('error', Lang::get('alerts.postsLangs_delete_error'));
     }
 
-    public function show(Request $request) {
-
+    public function show($id) {
+        $postsLang = PostLang::findOrFail($id);
+        return view('postsLang.show', compact('postsLang'));
     }
 
     protected function validatePostLang($request) {

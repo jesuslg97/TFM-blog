@@ -78,5 +78,5 @@ Route::prefix('postsLang')->group(function () {
     Route::get('/{postLang}/edit', 'PostLangController@edit')->name('postsLang.edit');
     Route::post('/{postLang}/update', 'PostLangController@update')->name('postsLang.update');
     Route::delete('/{postLang}/delete', 'PostLangController@delete')->name('postsLang.delete');
-    Route::get('/{postLang}/show', 'PostLangController@show')->name('postLang.show');
+    Route::get('/{postLang}/show', 'PostLangController@show')->name('postsLang.show');
 });

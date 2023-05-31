@@ -48,6 +48,7 @@
                                 <td>{{$postLang->information}}</td>
 
                                 <td>
+                                    <a class="btn btn-secondary mb-1" href="{{ route('postsLang.show', $postLang->id) }}">Ver</a>
                                     <a class="btn btn-success mb-1" href="{{ route('postsLang.edit', $postLang->id) }}">Editar</a>
 
                                     <form id="delete-form-{{ $postLang->id }}" action="{{ route('postsLang.delete', [$postLang]) }}"
