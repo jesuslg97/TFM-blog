@@ -13,12 +13,11 @@
             </div>
 
             <div class="offset-md-4 col-4 mt-3">
-                <form id="editCategories" name="create_category" action="{{ route('categories.update',$category) }}" method="post">
+                <form id="editCategories" enctype="multipart/form-data" name="create_category" action="{{ route('categories.update',$category) }}" method="post">
                     @csrf
                     <div class="mb-3">
                         <label for="categoryImage" class="form-label">{{__('string.category_image')}}</label>
-                        <input id="categoryImage" name="categoryImage" type="text"
-                               placeholder="{{__('string.category_image')}}" class="form-control" value="{{$category->image_path}}" required>
+                        <input id="categoryImage" name="categoryImage" type="file" class="form-control" value="{{$category->image_path}}" required>
                     </div>
 
                     <div class="col-12 text-center mb-2">

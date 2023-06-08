@@ -6,6 +6,7 @@ use App\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use \Validator;
 
 class CategorieController extends Controller
@@ -36,6 +37,16 @@ class CategorieController extends Controller
 
         $category = new Categorie();
         $category->image_path = $request->categoryImage;
+
+        if($request->hasFile("categoryImage")) {
+            $imagen = $request->file("categoryImage");
+            $nameImage = Str::slug($request->categoryImage).".".$imagen->guessExtension();
+            $ruta = public_path("images/");
+
+            copy($imagen->getRealPath(),$ruta.$nameImage);
+            $category->image_path = $nameImage;
+        }
+
         $category->save();
 
         return redirect()->route('categories.index')->with('success', Lang::get('alerts.categories_created_successfully'));
@@ -63,7 +74,7 @@ class CategorieController extends Controller
 
     protected function validateCategory($request) {
         return Validator::make($request->all(), [
-            'categoryImage' => ['required', 'string', 'max:255', 'min:1']
+            'categoryImage' => ['required', 'min:1']
         ]);
     }
 }
