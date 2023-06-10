@@ -22,77 +22,93 @@
 
 <header class="col-md-12">
 
-    <div class="row col-md-12">
+    <div class="row col-12 mt-1 mb-1">
 
-        <div class="row col-md-11">
-            <div class="col-sm-4 titulo text-center">
+        <div class="col-4 text-center">
+            <span><strong>Vista en modo: </strong>
+                <button type="button" class="btn btn-sm btn-warning mb-1"><i class="bi bi-sun"></i></button>
+                <button type="button" class="btn btn-sm btn-dark mb-1"><i class="bi bi-moon"></i></button>
+            </span><br>
+            <span><strong>Idioma: </strong>
+                <button type="button" class="btn btn-sm btn-danger">ESP <i class="bi bi-flag"></i></button>
+                <button type="button" class="btn btn-sm btn-primary">ING <i class="bi bi-flag"></i></button>
+            </span>
+        </div>
 
-                <h1 class="m-0">Modo oscuro</h1>
+        <div class="row col-4 text-center">
+            <div class="col">
+                <hr class="teal accent-3 d-inline-block" style="width: 120%; border: 2px solid #F4600C">
+            </div>
 
-                <h1 class="m-0">Cambiar idioma</h1>
+            <div class="col">
+                IMAGEN LOGO VIU
+            </div>
 
-                <p class="m-0"></p>
+            <div class="col">
+                <hr class="teal accent-3 d-inline-block" style="width: 120%; border: 2px solid #F4600C">
             </div>
         </div>
 
-        <div class="row col-md-1">
-            <div class="text-center mt-0">
-                Redes sociales
-            </div>
+        <div class="col-2 text-center offset-2">
+            <span><i class="bi bi-instagram fs-2 m-1" style="font-size: xx-large; color: hotpink"></i></span>
+            <span><i class="bi bi-facebook fs-2 m-1" style="font-size: xx-large; color: blue"></i></span>
+            <span><i class="bi bi-twitter fs-2 m-1" style="font-size: xx-large; color: lightskyblue"></i></span>
         </div>
 
     </div>
 
     <div class="row">
-        <nav class="navbar-expand col-md-10" style="background-color: #F4600C">
+        <div class="row col-10">
+            <nav class="navbar-expand col-10" style="background-color: #F4600C">
 
-            <div class="collapse navbar-collapse">
-                <ul class="col-md-10 navbar-nav m-auto text-center text-white">
-                    <li class="col-md-2 nav-item">
-                        <a class="nav-link text-white" href="{{ route('welcome') }}">Blog</a>
-                    </li>
-                    <li class="col-md-2 nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            Categorías<span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li class="dropdown-item"><a href="#">Seguridad</a></li>
-                            <li class="dropdown-item"><a href="#">Dispositivos/periféricos</a></li>
-                            <li class="dropdown-item"><a href="#">Noticias</a></li>
-                        </ul>
-                    </li>
-                    <li class="col-md-2 nav-item">
-                        <a class="nav-link text-white" href="#">Últimos post</a>
-                    </li>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav text-center">
+                        <li class="col-md-3 nav-item">
+                            <a class="nav-link text-white" href="{{ route('welcome') }}">Blog</a>
+                        </li>
+                        <li class="col-md-3 nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Categorías<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="dropdown-item"><a href="#">Seguridad</a></li>
+                                <li class="dropdown-item"><a href="#">Dispositivos/periféricos</a></li>
+                                <li class="dropdown-item"><a href="#">Noticias</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-md-3 nav-item">
+                            <a class="nav-link text-white" href="#">Últimos post</a>
+                        </li>
 
-                    <li class="col-md-2 nav-item">
-                        <a class="nav-link text-white" href="{{ route('aboutUs') }}">Quiénes somos</a>
-                    </li>
-                    <li class="col-md-1 nav-item">
-                        <a class="nav-link text-white" href="{{ route('contact') }}">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                        <li class="col-md-3 nav-item">
+                            <a class="nav-link text-white" href="{{ route('aboutUs') }}">Quiénes somos</a>
+                        </li>
+                        <li class="col-md-3 nav-item">
+                            <a class="nav-link text-white" href="{{ route('contact') }}">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
 
-        <nav class="navbar-expand col-md-2" style="background-color: #F4600C">
-            <div class="collapse navbar-collapse">
-                <ul class="col-md-2 navbar-nav m-auto text-center text-white">
-                    <li class="nav-item">
+        <div class="row">
+            <nav class="navbar-expand col-12" style="background-color: #F4600C">
+                <div class="col-12 collapse navbar-collapse">
+                    <ul class="col-12 navbar-nav text-center">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link text-white" href="{{ route('login') }}"><i class="bi bi-person-check"></i> {{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-white" href="{{ route('register') }}"><i class="bi bi-person-add"></i> {{ __('Register') }}</a>
                                 </li>
                            @endif
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="bi bi-person-check"></i> Usuario: {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -107,10 +123,11 @@
                                 </div>
                             </li>
                         @endguest
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
     </div>
 
 </header>
