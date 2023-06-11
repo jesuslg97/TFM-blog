@@ -5,23 +5,23 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container mt-2">
         <div class="row card shadow">
 
             @if(Auth::id() == 1)
                 <div class="col-12 text-center mt-3">
                     <h1>{{__('string.list_title_categoryLang')}}</h1>
+                    <hr class="teal accent-3 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
                 </div>
 
                 <div class="col-12">
+
+                    <div class="col-12 text-center mb-2">
+                        <a class ="header__link btn btn-primary" href="{{route('categoriesLang.create')}}">
+                            <i class="bi bi-database-add"></i> {{__('string.create_categoryLang')}}</a>
+                    </div>
+
                     @if(count($categoryLangs) > 0)
-
-                        <div class="col-12 text-center mb-2">
-                            <a class ="header__link btn btn-primary" href="{{route('categoriesLang.create')}}">
-                                {{__('string.create_categoryLang')}}<i class="fas fa-plus"></i></a>
-                            <a class="btn btn-warning text-white" href="{{ url()->previous() }}">Volver</a>
-                        </div>
-
                         <table class="table table-striped text-center mt-3">
                             <thead>
                             <th>{{__('string.id_header')}}</th>
@@ -54,14 +54,15 @@
                                     <td>{{$categoryLang->description}}</td>
 
                                     <td>
-                                        <a class="btn btn-success mb-1" href="{{ route('categoriesLang.edit', $categoryLang->id) }}">Editar</a>
+                                        <a class="btn btn-success mb-1" href="{{ route('categoriesLang.edit', $categoryLang->id) }}">
+                                            <i class="bi bi-pencil"></i> Editar</a>
 
                                         <form id="delete-form-{{ $categoryLang->id }}" action="{{ route('categoriesLang.delete', [$categoryLang]) }}"
                                               method="post" style="display: inline-block">
                                             {{ method_field('delete') }}
                                             {{ csrf_field() }}
                                             <button type="submit" class="btn btn-danger" onclick = "return confirm('¿Realmente desea eliminar?')">
-                                                {{__('string.delete_btn')}}</button>
+                                                <i class="bi bi-trash"></i> {{__('string.delete_btn')}}</button>
                                         </form>
                                     </td>
                                 </tr>

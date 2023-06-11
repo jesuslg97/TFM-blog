@@ -5,23 +5,21 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container mt-2">
         <div class="row card shadow">
 
             <div class="col-12 text-center mt-3">
                 <h1>{{__('string.list_title_category')}}</h1>
+                <hr class="teal accent-3 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
             </div>
 
-            {{--<div class="col-md-4 form-inline">
-                <form action="{{route('categories.index')}}" method="post">
-                    @csrf
-                    <input id="categoryImage" name="categoryImage" class="form-control"
-                           value="@isset($categoryImage) {{$categoryImage}} @endisset" placeholder="{{__('string.search_category_image_placeholder')}}" />
-                    <button type="submit" class="btn btn-dark">{{__('string.search_btn')}}</button>
-                </form>
-            </div>--}}
-
             <div class="col-12">
+
+                <div class="col-12 text-center mb-2">
+                    <a class ="header__link btn btn-primary" href="{{route('categories.create')}}">
+                        <i class="bi bi-database-add"></i> {{__('string.create_category')}}</a>
+                </div>
+
                 @if(count($categories) > 0)
                     <table class="table table-striped text-center mt-3">
                         <thead>
@@ -36,7 +34,8 @@
                                 <td>{{$category->id}}</td>
                                 <td>{{$category->image_path}}</td>
                                 <td>
-                                    <a class="btn btn-success" href="{{ route('categories.edit', $category) }}">Editar</a>
+                                    <a class="btn btn-success" href="{{ route('categories.edit', $category) }}">
+                                        <i class="bi bi-pencil"></i> Editar</a>
 
                                     <form id="delete-form-{{ $category->id }}" action="{{ route('categories.delete', [$category]) }}"
                                           method="post" style="display: inline-block">
@@ -44,7 +43,7 @@
                                         {{ csrf_field() }}
                                         <button type="submit" class="btn btn-danger"
                                                 onclick = "return confirm('¿Realmente desea eliminar? Se borrarán también todos los posts asociados a esta categoria.')">
-                                            {{__('string.delete_btn')}}</button>
+                                            <i class="bi bi-trash"></i> {{__('string.delete_btn')}}</button>
                                     </form>
                                 </td>
                             </tr>
@@ -66,12 +65,6 @@
                         @endif
                     </div>
                 </div>
-            </div>
-
-            <div class="col-12 text-center mb-2">
-                <a class ="header__link btn btn-primary" href="{{route('categories.create')}}">
-                    {{__('string.create_category')}}<i class="fas fa-plus"></i></a>
-                <a class="btn btn-warning text-white" href="{{ url()->previous() }}">Volver</a>
             </div>
 
         </div>

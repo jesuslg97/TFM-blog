@@ -5,15 +5,16 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container mt-2">
         <div class="row card shadow">
 
             <div class="col-12 text-center mt-3">
                 <h1>{{__('string.edit_language')}}</h1>
+                <hr class="teal accent-3 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
             </div>
 
             <div class="offset-md-4 col-4 mt-3">
-                <form name="create_language" action="{{ route('languages.update', $language) }}" method="post">
+                <form name="create_language" action="{{ route('languages.update',$language) }}" method="post">
                     @csrf
                     <div class="mb-3">
                         <label for="languageName" class="form-label">{{__('string.language_name')}}</label>

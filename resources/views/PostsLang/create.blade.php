@@ -5,11 +5,12 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container mt-2">
         <div class="row card shadow">
 
             <div class="col-12 text-center mt-3">
                 <h1>{{__('string.create_postLang')}}</h1>
+                <hr class="teal accent-3 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
             </div>
 
             <form name="create_postLang" action="{{ route('postsLang.store') }}" method="post">

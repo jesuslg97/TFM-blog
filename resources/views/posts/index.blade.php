@@ -5,14 +5,21 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container mt-2">
         <div class="row card shadow">
 
             <div class="col-12 text-center mt-3">
                 <h1>{{__('string.list_title_post')}}</h1>
+                <hr class="teal accent-3 mt-0 d-inline-block mx-auto border-dark" style="width: 100px;">
             </div>
 
             <div class="col-12">
+
+                <div class="col-12 text-center mb-2">
+                    <a class ="header__link btn btn-primary" href="{{route('posts.create')}}">
+                        <i class="bi bi-database-add"></i> {{__('string.create_post')}}</a>
+                </div>
+
                 @if(count($posts) > 0)
                     <table class="table table-striped text-center mt-3">
                         <thead>
@@ -34,14 +41,15 @@
                                 <td>{{$post->image_path}}</td>
 
                                 <td>
-                                    <a class="btn btn-success mb-1" href="{{ route('posts.edit', $post->id) }}">Editar</a>
+                                    <a class="btn btn-success mb-1" href="{{ route('posts.edit', $post->id) }}">
+                                        <i class="bi bi-pencil"></i> Editar</a>
 
                                     <form id="delete-form-{{ $post->id }}" action="{{ route('posts.delete', [$post]) }}"
                                           method="post" style="display: inline-block">
                                         {{ method_field('delete') }}
                                         {{ csrf_field() }}
                                         <button type="submit" class="btn btn-danger" onclick = "return confirm('¿Realmente desea eliminar?')">
-                                            {{__('string.delete_btn')}}</button>
+                                            <i class="bi bi-trash"></i> {{__('string.delete_btn')}}</button>
                                     </form>
                                 </td>
                             </tr>
@@ -63,12 +71,6 @@
                         @endif
                     </div>
                 </div>
-            </div>
-
-            <div class="col-12 text-center mb-2">
-                <a class ="header__link btn btn-primary" href="{{route('posts.create')}}">
-                    {{__('string.create_post')}}<i class="fas fa-plus"></i></a>
-                <a class="btn btn-warning text-white" href="{{ url()->previous() }}">Volver</a>
             </div>
 
         </div>

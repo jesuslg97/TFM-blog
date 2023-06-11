@@ -63,29 +63,59 @@
 
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav text-center">
-                        <li class="col-md-3 nav-item">
-                            <a class="nav-link text-white" href="{{ route('welcome') }}">Blog</a>
-                        </li>
-                        <li class="col-md-3 nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Categorías<span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li class="dropdown-item"><a href="#">Seguridad</a></li>
-                                <li class="dropdown-item"><a href="#">Dispositivos/periféricos</a></li>
-                                <li class="dropdown-item"><a href="#">Noticias</a></li>
-                            </ul>
-                        </li>
-                        <li class="col-md-3 nav-item">
-                            <a class="nav-link text-white" href="#">Últimos post</a>
-                        </li>
 
-                        <li class="col-md-3 nav-item">
-                            <a class="nav-link text-white" href="{{ route('aboutUs') }}">Quiénes somos</a>
-                        </li>
-                        <li class="col-md-3 nav-item">
-                            <a class="nav-link text-white" href="{{ route('contact') }}">Contacto</a>
-                        </li>
+                        @if(Auth::id() == 1)
+                            <li class="col-md-3 nav-item">
+                                <a class="nav-link text-white" href="{{ route('welcome') }}">Blog</a>
+                            </li>
+                            <li class="col-md-4 nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Categorías<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li class="dropdown-item"><a href="{{ route('categories.index') }}">Categorías</a></li>
+                                    <li class="dropdown-item"><a href="{{ route('categoriesLang.index') }}">Idiomas de Categorías</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-md-4 nav-item">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Posts<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li class="dropdown-item"><a href="{{ route('posts.index') }}">Posts</a></li>
+                                    <li class="dropdown-item"><a href="{{ route('postsLang.index') }}">Idiomas de Posts</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="col-md-3 nav-item">
+                                <a class="nav-link text-white" href="{{ route('languages.index') }}">Idiomas</a>
+                            </li>
+                        @else
+                            <li class="col-md-3 nav-item">
+                                <a class="nav-link text-white" href="{{ route('welcome') }}">Blog</a>
+                            </li>
+                            <li class="col-md-3 nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Categorías<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li class="dropdown-item"><a href="#">Seguridad</a></li>
+                                    <li class="dropdown-item"><a href="#">Dispositivos/periféricos</a></li>
+                                    <li class="dropdown-item"><a href="#">Noticias</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-md-3 nav-item">
+                                <a class="nav-link text-white" href="#">Últimos post</a>
+                            </li>
+
+                            <li class="col-md-3 nav-item">
+                                <a class="nav-link text-white" href="{{ route('aboutUs') }}">Quiénes somos</a>
+                            </li>
+                            <li class="col-md-3 nav-item">
+                                <a class="nav-link text-white" href="{{ route('contact') }}">Contacto</a>
+                            </li>
+                        @endif
+
                     </ul>
                 </div>
             </nav>
