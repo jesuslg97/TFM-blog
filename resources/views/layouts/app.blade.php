@@ -41,7 +41,7 @@
             </div>
 
             <div class="col">
-                IMAGEN LOGO VIU
+                <img src="/public/images/Logo_VIU.PNG" alt="IMAGEN LOGO VIU">
             </div>
 
             <div class="col">

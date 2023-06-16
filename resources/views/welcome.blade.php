@@ -27,21 +27,27 @@
                                     @if($categoryLang->lang_id == 1)
                                         @if($categoryLang->id == 1)
                                             <h5 class="card-title"><strong>{{ $categoryLang->name }}</strong></h5>
-                                            <img src="{{asset('/public/images/Categoria_seguridad.PNG')}}" alt="imagen categoría seguridad">
+                                            @foreach($categories as $category)
+                                                <img src="{{ asset($category->image_path) }}" alt="imagen categoría seguridad">
+                                            @endforeach
                                             <p class="card-text">Listado de los posts relacionados con la seguridad.</p>
 {{--                                            @if($postLang->id == 1)--}}
                                                 <a class="btn text-white" style="background-color: #F4600C" href="{{ route('postsLang.index', $categoryLang->id) }}">Posts sobre {{ $categoryLang->name }}</a>
 {{--                                            @endif--}}
                                         @elseif($categoryLang->id == 2)
                                             <h5 class="card-title"><strong>{{ $categoryLang->name }}</strong></h5>
-                                            <img src="{{asset('/public/images/Categoria_dispositivo-periferico.PNG')}}" alt="imagen categoría dispositivo/periferico">
+                                            @foreach($categories as $category)
+                                                <img src="{{ asset($category->image_path) }}" alt="imagen categoría dispositivo/periferico">
+                                            @endforeach
                                             <p class="card-text">Listado de los posts relacionados con los dispositivos.</p>
 {{--                                            @if($postLang->id == 2)--}}
                                                 <a class="btn text-white" style="background-color: #F4600C" href="{{ route('postsLang.index', $categoryLang->id) }}">Posts sobre {{ $categoryLang->name }}</a>
 {{--                                            @endif--}}
                                         @elseif($categoryLang->id == 3)
                                             <h5 class="card-title"><strong>{{ $categoryLang->name }}</strong></h5>
-                                            <img src="{{asset('/public/images/Categoria_noticias.PNG')}}" alt="imagen categoría noticias">
+                                            @foreach($categories as $category)
+                                                <img src="{{ asset($category->image_path) }}" alt="imagen categoría noticias">
+                                            @endforeach
                                             <p class="card-text">Listado de los posts relacionados con Internet.</p>
 {{--                                            @if($postLang->id == 3)--}}
                                                 <a class="btn text-white" style="background-color: #F4600C" href="{{ route('postsLang.index', $categoryLang->id) }}">Posts sobre {{ $categoryLang->name }}</a>

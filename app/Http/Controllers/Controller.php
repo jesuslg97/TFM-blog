@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categorie;
 use App\CategoryLang;
 use App\PostLang;
 
@@ -18,8 +19,9 @@ class Controller extends BaseController
     public function welcome(){
         $categoryLangs = CategoryLang::all();
         $postsLang = PostLang::all();
+        $categories = Categorie::all();
 
-        return view('welcome',['categoryLangs'=>$categoryLangs, 'postsLang'=>$postsLang]);
+        return view('welcome',['categoryLangs'=>$categoryLangs, 'postsLang'=>$postsLang, 'categories'=>$categories]);
     }
     public function aboutUs() {
         return view('aboutUs');

@@ -13,7 +13,7 @@
                 <hr class="teal accent-3 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
             </div>
 
-            <form name="edit_post" action="{{ route('posts.store', $post) }}" method="post">
+            <form name="edit_post" enctype="multipart/form-data" action="{{ route('posts.store', $post) }}" method="post">
                 @csrf
                 <div class="row col-12">
 
@@ -36,7 +36,7 @@
 
                     <div class="col-4 mt-3">
                         <label for="postImage" class="form-label">{{__('string.post_image')}}</label>
-                        <input id="postImage" name="postImage" type="text"
+                        <input id="postImage" name="postImage" type="file"
                                placeholder="{{__('string.post_image')}}" class="form-control" value="{{$post->image_path}}" required>
                     </div>
                 </div>

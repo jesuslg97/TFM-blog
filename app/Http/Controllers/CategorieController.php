@@ -41,7 +41,7 @@ class CategorieController extends Controller
         if($request->hasFile("categoryImage")) {
             $imagen = $request->file("categoryImage");
             $nameImage = Str::slug($request->categoryImage).".".$imagen->guessExtension();
-            $ruta = public_path("images/");
+            $ruta = public_path("images/categories/");
 
             copy($imagen->getRealPath(),$ruta.$nameImage);
             $category->image_path = $nameImage;

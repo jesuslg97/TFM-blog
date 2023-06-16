@@ -9,6 +9,7 @@ use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use \Validator;
 
 class PostController extends Controller
@@ -63,6 +64,16 @@ class PostController extends Controller
         $post = new Post();
         $post->category_id = $request->postCategory;
         $post->image_path = $request->postImage;
+
+        if($request->hasFile("postImage")) {
+            $imagen = $request->file("postImage");
+            $nameImage = Str::slug($request->postImage).".".$imagen->guessExtension();
+            $ruta = public_path("images/posts/");
+
+            copy($imagen->getRealPath(),$ruta.$nameImage);
+            $post->image_path = $nameImage;
+        }
+
         $post->save();
 
         return redirect()->route('posts.index')->with('success', Lang::get('alerts.posts_created_successfully'));
@@ -98,7 +109,7 @@ class PostController extends Controller
 
     protected function validatePost($request) {
         return Validator::make($request->all(), [
-            'postImage' => ['required', 'string', 'max:255', 'min:1']
+            'postImage' => ['required', 'min:1']
         ]);
     }
 }
