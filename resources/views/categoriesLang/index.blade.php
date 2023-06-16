@@ -85,47 +85,7 @@
                         </div>
                     </div>
                 </div>
-            @else
-                <div class="col-12 text-center mt-3">
-                    <h1>Posts sobre seguridad</h1>
-                    <hr class="teal accent-3 mb-2 mt-0 d-inline-block mx-auto border-dark" style="width: 300px;">
-                </div>
-
-                <div class="m-1 text-center">
-                    <p>En esta página podemos encontrar varios posts relacionados con el tema de la seguridad
-                        en los dispositivos tecnológicos, ya sea para describir consejos, realizar cambios...</p>
-                </div>
-
-                <div class="col-12 d-flex align-items-center justify-content-center">
-                    @foreach($categoryLangs as $categoryLang)
-                        <div class="col-4">
-                            <div class="card mb-2">
-                                <div class="card-body text-center" style="border: 4px solid #F4600C;">
-                                    @if($categoryLang->id == 1)
-                                        <h5 class="card-title"><strong>{{ $categoryLang->name }}</strong></h5>
-                                        <img src="{{asset('/public/images/Categoria_seguridad.PNG')}}" alt="imagen categoría seguridad">
-                                        <p class="card-text">Para más información clique en el siguiente botón.</p>
-                                        <a class="btn text-white" style="background-color: #F4600C" href="{{ route('postsLang.show', $categoryLang->id) }}">Posts sobre seguridad</a>
-                                    @elseif($categoryLang->id == 2)
-                                        <h5 class="card-title"><strong>{{ $categoryLang->name }}</strong></h5>
-                                        <img src="{{asset('/public/images/Categoria_dispositivo-periferico.PNG')}}" alt="imagen categoría dispositivo/periferico">
-                                        <p class="card-text">Para más información clique en el siguiente botón.</p>
-                                        <a class="btn text-white" style="background-color: #F4600C" href="{{ route('postsLang.show', $categoryLang->id) }}">Posts sobre dispositivos</a>
-                                    @elseif($categoryLang->id == 3)
-                                        <h5 class="card-title"><strong>{{ $categoryLang->name }}</strong></h5>
-                                        <img src="{{asset('/public/images/Categoria_noticias.PNG')}}" alt="imagen categoría noticias">
-                                        <p class="card-text">Para más información clique en el siguiente botón.</p>
-                                        <a class="btn text-white" style="background-color: #F4600C" href="{{ route('postsLang.show', $categoryLang->id) }}">Posts sobre Internet</a>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-
             @endif
-
-
         </div>
     </div>
 @endsection

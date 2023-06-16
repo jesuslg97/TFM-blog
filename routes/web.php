@@ -69,6 +69,7 @@ Route::prefix('categoriesLang')->group(function () {
     Route::get('/{categoryLang}/edit', 'CategoryLangController@edit')->name('categoriesLang.edit');
     Route::post('/{categoryLang}/update', 'CategoryLangController@update')->name('categoriesLang.update');
     Route::delete('/{categoryLang}/delete', 'CategoryLangController@delete')->name('categoriesLang.delete');
+    Route::get('/{categoryLang}/show', 'CategoryLangController@show')->name('categoriesLang.show');
 });
 
 Route::prefix('postsLang')->group(function () {

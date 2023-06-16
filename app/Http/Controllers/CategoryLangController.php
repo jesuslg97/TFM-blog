@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Categorie;
 use App\CategoryLang;
 use App\Language;
+use App\Post;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
@@ -80,6 +81,14 @@ class CategoryLangController extends Controller
             return redirect()->route('categoriesLang.index')->with('success', Lang::get('alerts.categoryLangs_delete_successfully'));
         }
         return redirect()->route('categoriesLang.index')->with('error', Lang::get('alerts.categoryLangs_delete_error'));
+    }
+
+    public function show($id) {
+        $categoriesLang = CategoryLang::all();
+        $category = CategoryLang::findOrFail($id);
+        $post = Post::findOrFail($id);
+
+        return view('categoriesLang.show', ['categoriesLang'=>$categoriesLang], compact('category', 'post'));
     }
 
     protected function validateCategoryLang($request) {

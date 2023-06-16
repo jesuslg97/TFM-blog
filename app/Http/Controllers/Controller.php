@@ -17,11 +17,10 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function welcome(){
-        $categoryLangs = CategoryLang::all();
-        $postsLang = PostLang::all();
+        $categoriesLang = CategoryLang::all();
         $categories = Categorie::all();
 
-        return view('welcome',['categoryLangs'=>$categoryLangs, 'postsLang'=>$postsLang, 'categories'=>$categories]);
+        return view('welcome',['categoriesLang'=>$categoriesLang, 'categories'=>$categories]);
     }
     public function aboutUs() {
         return view('aboutUs');
