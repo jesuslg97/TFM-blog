@@ -99,13 +99,31 @@
                                     Categorías<span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li class="dropdown-item"><a href="#">Seguridad</a></li>
-                                    <li class="dropdown-item"><a href="#">Dispositivos/periféricos</a></li>
-                                    <li class="dropdown-item"><a href="#">Noticias</a></li>
+                                    <li class="dropdown-item">
+                                        @foreach($categoriesLang as $categoryLang)
+                                            @if($categoryLang->id == 4)
+                                                <a href="{{ route('categoriesLang.show', $categoryLang->id) }}">Seguridad</a>
+                                            @endif
+                                        @endforeach
+                                    </li>
+                                    <li class="dropdown-item">
+                                        @foreach($categoriesLang as $categoryLang)
+                                            @if($categoryLang->id == 2)
+                                                <a href="{{ route('categoriesLang.show', $categoryLang->id) }}">Dispositivos/periféricos</a>
+                                            @endif
+                                        @endforeach
+                                    </li>
+                                    <li class="dropdown-item">
+                                        @foreach($categoriesLang as $categoryLang)
+                                            @if($categoryLang->id == 3)
+                                                <a href="{{ route('categoriesLang.show', $categoryLang->id) }}">Noticias</a>
+                                            @endif
+                                        @endforeach
+                                    </li>
                                 </ul>
                             </li>
                             <li class="col-md-3 nav-item">
-                                <a class="nav-link text-white" href="#">Últimos post</a>
+                                <a class="nav-link text-white" href="{{ route('last_post') }}">Últimos post</a>
                             </li>
 
                             <li class="col-md-3 nav-item">

@@ -16,14 +16,17 @@ Route::get('/welcome', function () {
 });
 
 Auth::routes();
+//Route::get('/login', 'Auth\LoginController@login')->name('login');
+//Route::get('/register', 'Auth\RegisterController@register')->name('register');
 
 Route::get('/welcome', 'Controller@welcome')->name('welcome');
+
+Route::get('/last_post', 'Controller@last_post')->name('last_post');
 
 Route::get('/aboutUs', 'Controller@aboutUs')->name('aboutUs');
 Route::get('/contact', 'Controller@contact')->name('contact');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/registrar', 'HomeController@registrar')->name('registrar');
 
 Route::prefix('categories')->group(function () {
     Route::match(['get', 'post'], '/', 'CategorieController@index')->name('categories.index');
