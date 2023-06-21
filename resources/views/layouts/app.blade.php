@@ -24,7 +24,7 @@
 
     <div class="row col-12 mt-1 mb-1">
 
-        <div class="col-4 text-center">
+        <div class="col-3">
             <span><strong>Vista en modo: </strong>
                 <button type="button" class="btn btn-sm btn-warning mb-1"><i class="bi bi-sun"></i></button>
                 <button type="button" class="btn btn-sm btn-dark mb-1"><i class="bi bi-moon"></i></button>
@@ -35,21 +35,22 @@
             </span>
         </div>
 
-        <div class="row col-4 text-center">
-            <div class="col">
-                <hr class="teal accent-3 d-inline-block" style="width: 120%; border: 2px solid #F4600C">
+        <div class="row col-6 text-center">
+            <div class="col mt-3">
+                <hr class="teal accent-3 d-inline-block" style="width: 100%; border: 2px solid #F4600C">
             </div>
 
             <div class="col">
-                <img src="/public/images/Logo_VIU.PNG" alt="IMAGEN LOGO VIU">
+                <img src="{{ asset('storage/images/Logo_VIU.PNG') }}"
+                     alt="IMAGEN LOGO VIU" class="w-100">
             </div>
 
-            <div class="col">
-                <hr class="teal accent-3 d-inline-block" style="width: 120%; border: 2px solid #F4600C">
+            <div class="col mt-3">
+                <hr class="teal accent-3 d-inline-block" style="width: 100%; border: 2px solid #F4600C">
             </div>
         </div>
 
-        <div class="col-2 text-center offset-2">
+        <div class="col-3 text-right">
             <span><i class="bi bi-instagram fs-2 m-1" style="font-size: xx-large; color: hotpink"></i></span>
             <span><i class="bi bi-facebook fs-2 m-1" style="font-size: xx-large; color: blue"></i></span>
             <span><i class="bi bi-twitter fs-2 m-1" style="font-size: xx-large; color: lightskyblue"></i></span>
@@ -100,25 +101,25 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li class="dropdown-item">
-                                        @foreach($categoriesLang as $categoryLang)
-                                            @if($categoryLang->id == 4)
-                                                <a href="{{ route('categoriesLang.show', $categoryLang->id) }}">Seguridad</a>
-                                            @endif
-                                        @endforeach
-                                    </li>
-                                    <li class="dropdown-item">
-                                        @foreach($categoriesLang as $categoryLang)
-                                            @if($categoryLang->id == 2)
-                                                <a href="{{ route('categoriesLang.show', $categoryLang->id) }}">Dispositivos/periféricos</a>
-                                            @endif
-                                        @endforeach
-                                    </li>
-                                    <li class="dropdown-item">
-                                        @foreach($categoriesLang as $categoryLang)
-                                            @if($categoryLang->id == 3)
-                                                <a href="{{ route('categoriesLang.show', $categoryLang->id) }}">Noticias</a>
-                                            @endif
-                                        @endforeach
+{{--                                        @foreach($categoriesLang as $categoryLang)--}}
+{{--                                            @if($categoryLang->id == 4)--}}
+{{--                                                <a href="{{ route('categoriesLang.show', $categoryLang->id) }}">Seguridad</a>--}}
+{{--                                            @endif--}}
+{{--                                        @endforeach--}}
+{{--                                    </li>--}}
+{{--                                    <li class="dropdown-item">--}}
+{{--                                        @foreach($categoriesLang as $categoryLang)--}}
+{{--                                            @if($categoryLang->id == 2)--}}
+{{--                                                <a href="{{ route('categoriesLang.show', $categoryLang->id) }}">Dispositivos/periféricos</a>--}}
+{{--                                            @endif--}}
+{{--                                        @endforeach--}}
+{{--                                    </li>--}}
+{{--                                    <li class="dropdown-item">--}}
+{{--                                        @foreach($categoriesLang as $categoryLang)--}}
+{{--                                            @if($categoryLang->id == 3)--}}
+{{--                                                <a href="{{ route('categoriesLang.show', $categoryLang->id) }}">Noticias</a>--}}
+{{--                                            @endif--}}
+{{--                                        @endforeach--}}
                                     </li>
                                 </ul>
                             </li>

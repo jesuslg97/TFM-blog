@@ -23,23 +23,26 @@
                     <div class="col-4">
                         <div class="card">
                             <div class="card-body text-center" style="border: 4px solid #F4600C;">
-                                @if($category->id == 4)
+                                @if($category->id == 6)
                                     <h5 class="card-title"><strong>Seguridad</strong></h5>
-                                    <img src="{{ asset($category->image_path) }}" alt="imagen categoría seguridad">
+                                    <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
+                                         alt="imagen categoría seguridad" class="w-75">
                                     <p class="card-text">Listado de los posts relacionados con la seguridad.</p>
                                     <a class="btn text-white" style="background-color: #F4600C"
                                        href="{{ route('categoriesLang.show', $category->id) }}">Posts sobre Seguridad</a>
 
-                                @elseif($category->id == 2)
+                                @elseif($category->id == 7)
                                     <h5 class="card-title"><strong>Dispositivos/periféricos</strong></h5>
-                                    <img src="{{ asset($category->image_path) }}" alt="imagen categoría dispositivo/periferico">
+                                    <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
+                                         alt="imagen categoría dispositivo/periferico" class="w-50">
                                     <p class="card-text">Listado de los posts relacionados con los dispositivos.</p>
                                     <a class="btn text-white" style="background-color: #F4600C"
                                        href="{{ route('categoriesLang.show', $category->id) }}">Posts sobre Dispositivos/periféricos</a>
 
-                                @elseif($category->id == 3)
+                                @elseif($category->id == 8)
                                     <h5 class="card-title"><strong>Noticias</strong></h5>
-                                    <img src="{{ asset($category->image_path) }}" alt="imagen categoría noticias">
+                                    <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
+                                         alt="imagen categoría noticias" class="w-75">
                                     <p class="card-text">Listado de los posts relacionados con noticias.</p>
                                     <a class="btn text-white" style="background-color: #F4600C"
                                        href="{{ route('categoriesLang.show', $category->id) }}">Posts sobre Noticias</a>

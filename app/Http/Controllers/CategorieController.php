@@ -6,6 +6,8 @@ use App\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
 use \Validator;
 
@@ -40,10 +42,8 @@ class CategorieController extends Controller
 
         if($request->hasFile("categoryImage")) {
             $imagen = $request->file("categoryImage");
-            $nameImage = Str::slug($request->categoryImage).".".$imagen->guessExtension();
-            $ruta = public_path("images/categories/");
-
-            copy($imagen->getRealPath(),$ruta.$nameImage);
+            $nameImage = time() .".". $imagen->getClientOriginalExtension();
+            Storage::putFileAs('public/images/categories', (string)$imagen, $nameImage);
             $category->image_path = $nameImage;
         }
 
@@ -59,6 +59,14 @@ class CategorieController extends Controller
     public function update(Request $request, Categorie $category){
         $this->validateCategory($request)->validate();
         $category->image_path = $request->categoryImage;
+
+        if($request->hasFile("categoryImage")) {
+            $imagen = $request->file("categoryImage");
+            $nameImage = time() .".". $imagen->getClientOriginalExtension();
+            Storage::putFileAs('public/images/categories', (string)$imagen, $nameImage);
+            $category->image_path = $nameImage;
+        }
+
         $category->save();
 
         return redirect()->route('categories.index')->with('success', Lang::get('alerts.categories_update_successfully'));
