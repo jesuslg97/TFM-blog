@@ -35,6 +35,7 @@ Route::prefix('categories')->group(function () {
     Route::get('/{category}/edit', 'CategorieController@edit')->name('categories.edit');
     Route::post('/{category}/update', 'CategorieController@update')->name('categories.update');
     Route::delete('/{category}/delete', 'CategorieController@delete')->name('categories.delete');
+    Route::get('/{category}/show', 'CategorieController@show')->name('categories.show');
 });
 
 Route::prefix('posts')->group(function () {

@@ -34,7 +34,7 @@
                             <tr>
                                 <td>{{$post->id}}</td>
                                 <td>@foreach($categories as $category)
-                                        @if($category->id == $post->id)
+                                        @if($category->id == $post->category_id)
                                             {{$category->image_path}}
                                         @endif
                                     @endforeach</td>

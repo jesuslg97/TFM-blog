@@ -9,6 +9,7 @@ use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use \Validator;
 
@@ -67,10 +68,8 @@ class PostController extends Controller
 
         if($request->hasFile("postImage")) {
             $imagen = $request->file("postImage");
-            $nameImage = Str::slug($request->postImage).".".$imagen->guessExtension();
-            $ruta = public_path("images/posts/");
-
-            copy($imagen->getRealPath(),$ruta.$nameImage);
+            $nameImage = $imagen->getClientOriginalName();
+            Storage::putFileAs('public/images/posts', (string)$imagen, $nameImage);
             $post->image_path = $nameImage;
         }
 
@@ -90,6 +89,14 @@ class PostController extends Controller
         $this->validatePost($request)->validate();
         $post->category_id = $request->postCategory;
         $post->image_path = $request->postImage;
+
+        if($request->hasFile("postImage")) {
+            $imagen = $request->file("postImage");
+            $nameImage = $imagen->getClientOriginalName();
+            Storage::putFileAs('public/images/posts', (string)$imagen, $nameImage);
+            $post->image_path = $nameImage;
+        }
+
         $post->save();
 
         return redirect()->route('posts.index')->with('success', Lang::get('alerts.posts_update_successfully'));

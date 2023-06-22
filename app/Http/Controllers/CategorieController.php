@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Categorie;
+use App\CategoryLang;
+use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
@@ -42,7 +44,7 @@ class CategorieController extends Controller
 
         if($request->hasFile("categoryImage")) {
             $imagen = $request->file("categoryImage");
-            $nameImage = time() .".". $imagen->getClientOriginalExtension();
+            $nameImage = $imagen->getClientOriginalName();
             Storage::putFileAs('public/images/categories', (string)$imagen, $nameImage);
             $category->image_path = $nameImage;
         }
@@ -62,7 +64,7 @@ class CategorieController extends Controller
 
         if($request->hasFile("categoryImage")) {
             $imagen = $request->file("categoryImage");
-            $nameImage = time() .".". $imagen->getClientOriginalExtension();
+            $nameImage = $imagen->getClientOriginalName();
             Storage::putFileAs('public/images/categories', (string)$imagen, $nameImage);
             $category->image_path = $nameImage;
         }
@@ -78,6 +80,14 @@ class CategorieController extends Controller
             return redirect()->route('categories.index')->with('success', Lang::get('alerts.categories_delete_successfully'));
         }
         return redirect()->route('categories.index')->with('error', Lang::get('alerts.categories_delete_error'));
+    }
+
+    public function show($id) {
+        $categoryLang = CategoryLang::findOrFail($id);
+        $category = Categorie::findOrFail($id);
+        $posts = Post::all();
+
+        return view('categories.show', ['posts'=>$posts], compact('category','categoryLang'));
     }
 
     protected function validateCategory($request) {
