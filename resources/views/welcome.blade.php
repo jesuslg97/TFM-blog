@@ -31,7 +31,7 @@
                                     <a class="btn text-white" style="background-color: #F4600C"
                                        href="{{ route('categories.show', 1) }}">Posts sobre Seguridad</a>
 
-                                @elseif($category->id == 7)
+                                @elseif($category->id == 2)
                                     <h5 class="card-title"><strong>Dispositivos/periféricos</strong></h5>
                                     <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
                                          alt="imagen categoría dispositivo/periferico" class="w-50">
@@ -39,7 +39,7 @@
                                     <a class="btn text-white" style="background-color: #F4600C"
                                        href="{{ route('categories.show', $category->id) }}">Posts sobre Dispositivos/periféricos</a>
 
-                                @elseif($category->id == 8)
+                                @elseif($category->id == 3)
                                     <h5 class="card-title"><strong>Noticias</strong></h5>
                                     <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
                                          alt="imagen categoría noticias" class="w-75">

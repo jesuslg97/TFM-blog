@@ -87,7 +87,8 @@ class CategorieController extends Controller
         $category = Categorie::findOrFail($id);
         $posts = Post::all();
 
-        return view('categories.show', ['posts'=>$posts], compact('category','categoryLang'));
+        return view('categories.show', ['posts'=>$posts],
+            compact('category','categoryLang'));
     }
 
     protected function validateCategory($request) {
