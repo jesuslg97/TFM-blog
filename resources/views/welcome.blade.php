@@ -29,7 +29,7 @@
                                          alt="imagen categoría seguridad" class="w-75">
                                     <p class="card-text">Listado de los posts relacionados con la seguridad.</p>
                                     <a class="btn text-white" style="background-color: #F4600C"
-                                       href="{{ route('categories.show', 1) }}">Posts sobre Seguridad</a>
+                                       href="{{ route('categories.show', $category->id) }}">Posts sobre Seguridad</a>
 
                                 @elseif($category->id == 2)
                                     <h5 class="card-title"><strong>Dispositivos/periféricos</strong></h5>

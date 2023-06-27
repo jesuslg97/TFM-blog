@@ -42,6 +42,8 @@
                                     @foreach($posts as $post)
                                         @if($post->id == $postLang->post_id)
                                             {{$post->image_path}}
+                                            <img src="{{ asset('storage/images/posts/' . $post->image_path) }}"
+                                                 alt="imágenes posts" style="width: 25%">
                                         @endif
                                     @endforeach
                                 </td>
