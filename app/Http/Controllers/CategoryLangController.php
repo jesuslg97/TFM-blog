@@ -53,7 +53,7 @@ class CategoryLangController extends Controller
         $categoryLang->lang_id = $request->langID;
         $categoryLang->save();
 
-        return redirect()->route('categoriesLang.index')->with('success', Lang::get('alerts.categoryLangs_created_successfully'));
+        return redirect()->route('categoriesLang.index')->with('success', Lang::get('alerts.categoriesLang_created_successfully'));
     }
 
     public function edit(CategoryLang $categoryLang){
@@ -72,15 +72,15 @@ class CategoryLangController extends Controller
         $categoryLang->lang_id = $request->langID;
         $categoryLang->save();
 
-        return redirect()->route('categoriesLang.index')->with('success', Lang::get('alerts.categoryLangs_update_successfully'));
+        return redirect()->route('categoriesLang.index')->with('success', Lang::get('alerts.categoriesLang_update_successfully'));
     }
 
     public function delete(Request $request, CategoryLang $categoryLang){
         if($categoryLang != null) {
             $categoryLang->delete();
-            return redirect()->route('categoriesLang.index')->with('success', Lang::get('alerts.categoryLangs_delete_successfully'));
+            return redirect()->route('categoriesLang.index')->with('success', Lang::get('alerts.categoriesLang_delete_successfully'));
         }
-        return redirect()->route('categoriesLang.index')->with('error', Lang::get('alerts.categoryLangs_delete_error'));
+        return redirect()->route('categoriesLang.index')->with('error', Lang::get('alerts.categoriesLang_delete_error'));
     }
 
     public function show($id) {

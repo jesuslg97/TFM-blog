@@ -45,15 +45,15 @@ return [
     'languages_delete_error' => 'Idioma no borrado',
 
     //CATEGORY_LANG
-    'categoryLang_created_successfully' => 'Idioma de la categoría creada correctamente',
-    'categoryLang_update_successfully' => 'Idioma de la categoría actualizada correctamente',
-    'categoryLang_delete_successfully' => 'Idioma de la categoría borrada correctamente',
-    'categoryLang_delete_error' => 'Idioma de la categoría no borrada',
+    'categoriesLang_created_successfully' => 'Idioma de la categoría creada correctamente',
+    'categoriesLang_update_successfully' => 'Idioma de la categoría actualizada correctamente',
+    'categoriesLang_delete_successfully' => 'Idioma de la categoría borrada correctamente',
+    'categoriesLang_delete_error' => 'Idioma de la categoría no borrada',
 
     //POST_LANG
-    'postLang_created_successfully' => 'Idioma del post creado correctamente',
-    'postLang_update_successfully' => 'Idioma del post actualizado correctamente',
-    'postLang_delete_successfully' => 'Idioma del post borrado correctamente',
-    'postLang_delete_error' => 'Idioma del post no borrado',
+    'postsLang_created_successfully' => 'Idioma del post creado correctamente',
+    'postsLang_update_successfully' => 'Idioma del post actualizado correctamente',
+    'postsLang_delete_successfully' => 'Idioma del post borrado correctamente',
+    'postsLang_delete_error' => 'Idioma del post no borrado',
 
 ];

@@ -13,9 +13,9 @@
                 <hr class="teal accent-3 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
             </div>
 
-            <form name="edit_post" enctype="multipart/form-data" action="{{ route('posts.store', $post) }}" method="post">
+            <form name="edit_post" enctype="multipart/form-data" action="{{ route('posts.update', $post) }}" method="post">
                 @csrf
-                <div class="row col-12">
+                <div class="row col-12 offset-2">
 
                     <div class="col-4 mt-3">
                         <label for="postCategory" class="form-label">{{__('string.post_category')}}</label>
@@ -23,13 +23,11 @@
                         <select name="postCategory" id="postCategory" class="form-select" aria-label="Default select example">
                             <option selected>Elige una categoría</option>
                             @foreach($categories as $category)
-                                @foreach($categoriesLang as $categoryLang)
-                                    @if($category->id == $categoryLang->category_id)
-                                        <option selected value="{{$category->id}}">{{$categoryLang->name}}</option>
-                                    @else
-                                        <option value="{{$category->id}}">{{$categoryLang->name}}</option>
-                                    @endif
-                                @endforeach
+                                @if($category->id == $post->category_id)
+                                    <option selected value="{{$category->id}}">{{$category->image_path}}</option>
+                                @else
+                                    <option value="{{$category->id}}">{{$category->image_path}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
@@ -41,8 +39,8 @@
                     </div>
                 </div>
 
-                <div class="col-12 text-center mb-2">
-                    <input type="submit" value="{{__('string.create_bn')}}" class="btn btn-primary" name="createBtn">
+                <div class="col-12 text-center mt-2 mb-2">
+                    <input type="submit" value="{{__('string.edit_btn')}}" class="btn btn-primary" name="createBtn">
                     <a class="btn btn-warning text-white" href="{{ url()->previous() }}">Volver</a>
                 </div>
             </form>

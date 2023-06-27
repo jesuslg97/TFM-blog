@@ -32,9 +32,12 @@
                         @foreach($categories as $category)
                             <tr>
                                 <td>{{$category->id}}</td>
-                                <td>{{$category->image_path}}</td>
+                                <td>{{$category->image_path}}
+                                    <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
+                                         alt="imágenes categorías" style="width: 20%">
+                                </td>
                                 <td>
-                                    <a class="btn btn-success" href="{{ route('categories.edit', $category) }}">
+                                    <a class="btn btn-success mb-1" href="{{ route('categories.edit', $category) }}">
                                         <i class="bi bi-pencil"></i> Editar</a>
 
                                     <form id="delete-form-{{ $category->id }}" action="{{ route('categories.delete', [$category]) }}"

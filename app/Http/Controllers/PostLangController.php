@@ -56,7 +56,7 @@ class PostLangController extends Controller
         $postLang->lang_id = $request->langID;
         $postLang->save();
 
-        return redirect()->route('postsLang.index')->with('success', Lang::get('alerts.postsLangs_created_successfully'));
+        return redirect()->route('postsLang.index')->with('success', Lang::get('alerts.postsLang_created_successfully'));
     }
 
     public function edit(PostLang $postLang){
@@ -76,15 +76,15 @@ class PostLangController extends Controller
         $postLang->lang_id = $request->langID;
         $postLang->save();
 
-        return redirect()->route('postsLang.index')->with('success', Lang::get('alerts.postsLangs_update_successfully'));
+        return redirect()->route('postsLang.index')->with('success', Lang::get('alerts.postsLang_update_successfully'));
     }
 
     public function delete(Request $request, PostLang $postLang){
         if($postLang != null) {
             $postLang->delete();
-            return redirect()->route('postsLang.index')->with('success', Lang::get('alerts.postsLangs_delete_successfully'));
+            return redirect()->route('postsLang.index')->with('success', Lang::get('alerts.postsLang_delete_successfully'));
         }
-        return redirect()->route('postsLang.index')->with('error', Lang::get('alerts.postsLangs_delete_error'));
+        return redirect()->route('postsLang.index')->with('error', Lang::get('alerts.postsLang_delete_error'));
     }
 
     public function show($id) {

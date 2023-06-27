@@ -34,9 +34,18 @@ return [
     'id_header' => 'id',
     'name_header' => 'Nombre',
     'actions_header' => 'Acciones',
+    'lang_name' => 'Idioma',
+    'post' => 'Post relacionado',
+    'title' => 'Título',
+    'description' => 'Descripción',
+    'information' => 'Información',
+    'category' => 'Categoría',
+    'name' => 'Nombre',
+    'post_category' => 'Categoría',
+    'post_image' => 'Imagen del post',
 
     //CATEGORIES
-    'category_image' => 'Link de la imagen',
+    'category_image' => 'Imagen',
     'create_category' => 'Crear categoría',
     'edit_category' => 'Editar categoría',
 
@@ -66,6 +75,7 @@ return [
     'edit_categoryLang' => 'Editar idioma de la categoría',
     'categoryLang_name' => 'Nombre',
     'categoryLang_description' => 'Descripción',
+    'category_image_path' => 'Categoría',
 
     //POST_LANG
     'search_postLang_title_placeholder' => 'Buscar título del idioma del post',
@@ -75,5 +85,9 @@ return [
     'postLang_title' => 'Título',
     'postLang_description' => 'Descripción',
     'postLang_information' => 'Información',
+    'postLang_image_path' => 'Post relacionado',
+
+    //LAST_POST
+    'last_post' => 'Lista de los últimos post',
 
 ];

@@ -15,7 +15,7 @@
 
             <form name="create_post" enctype="multipart/form-data" action="{{ route('posts.store') }}" method="post">
                 @csrf
-                <div class="row col-12">
+                <div class="row col-12 offset-2">
 
                     <div class="col-4 mt-3">
                         <label for="postCategory" class="form-label">{{__('string.post_category')}}</label>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 text-center mb-2">
+                <div class="col-12 text-center mt-2 mb-2">
                     <input type="submit" value="{{__('string.create_bn')}}" class="btn btn-primary" name="createBtn">
                     <a class="btn btn-warning text-white" href="{{ url()->previous() }}">Volver</a>
                 </div>

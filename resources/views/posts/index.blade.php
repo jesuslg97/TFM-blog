@@ -36,9 +36,14 @@
                                 <td>@foreach($categories as $category)
                                         @if($category->id == $post->category_id)
                                             {{$category->image_path}}
+                                            <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
+                                                 alt="imágenes categorías" style="width: 20%">
                                         @endif
                                     @endforeach</td>
-                                <td>{{$post->image_path}}</td>
+                                <td>{{$post->image_path}}
+                                    <img src="{{ asset('storage/images/posts/' . $post->image_path) }}"
+                                         alt="imágenes posts" style="width: 25%">
+                                </td>
 
                                 <td>
                                     <a class="btn btn-success mb-1" href="{{ route('posts.edit', $post->id) }}">
