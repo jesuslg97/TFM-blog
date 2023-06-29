@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comment extends Model
 {
-    protected $table = 'categoryLangs';
-    use SoftDeletes;
+    protected $table = 'comments';
 
     public function User()
     {

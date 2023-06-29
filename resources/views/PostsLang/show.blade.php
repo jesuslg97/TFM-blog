@@ -20,5 +20,28 @@
             </div>
 
         </div>
+
+        <div class="row card shadow mt-3">
+            <div class="col-12">
+                <h4 class="mt-1"><strong>Comentarios:</strong></h4>
+
+                <div class="m-2">
+                    @foreach($comments as $comment)
+                        @foreach($users as $user)
+                            @if($user->id == $comment->user_id)
+                                <span><u>Comentario realizado por:</u> <strong>{{ $user->name }}</strong></span><br>
+                                <span>{{ $comment->comment }}</span><br>
+                                <hr class="mb-2 d-inline-block" style="border: 1px solid #F4600C; width: 300px;"><br>
+                          @endif
+                        @endforeach
+                    @endforeach
+                </div>
+
+                <a class="btn btn-dark mb-2" href="{{ route('comments.create') }}">
+                    <i class="bi bi-chat-square-text"></i> Añadir comentario
+                </a>
+            </div>
+        </div>
+
     </div>
 @endsection

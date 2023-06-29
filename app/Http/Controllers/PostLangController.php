@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Comment;
 use App\Post;
 use App\PostLang;
 use App\Language;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
@@ -90,8 +92,11 @@ class PostLangController extends Controller
     public function show($id) {
         $categoriesLang = Category::all();
         $postsLang = PostLang::findOrFail($id);
+        $comments = Comment::all();
+        $users = User::all();
 
-        return view('postsLang.show',['categoriesLang'=>$categoriesLang] ,compact('postsLang'));
+        return view('postsLang.show',['categoriesLang'=>$categoriesLang, 'comments'=>$comments,
+            'users'=>$users], compact('postsLang'));
     }
 
     protected function validatePostLang($request) {
