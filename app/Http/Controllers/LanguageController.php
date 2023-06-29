@@ -48,7 +48,7 @@ class LanguageController extends Controller
     }
 
     public function edit(Language $language){
-        return view('languages.edit', ['languages'=>$language]);
+        return view('languages.edit', ['language'=>$language]);
     }
 
     public function update(Request $request, Language $language){

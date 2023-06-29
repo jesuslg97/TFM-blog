@@ -61,9 +61,9 @@ Route::prefix('languages')->group(function () {
     Route::match(['get', 'post'], '/', 'LanguageController@index')->name('languages.index');
     Route::get('/create', 'LanguageController@create')->name('languages.create');
     Route::post('/store', 'LanguageController@store')->name('languages.store');
-    Route::get('/{lang}/edit', 'LanguageController@edit')->name('languages.edit');
-    Route::post('/{lang}/update', 'LanguageController@update')->name('languages.update');
-    Route::delete('/{lang}/delete', 'LanguageController@delete')->name('languages.delete');
+    Route::get('/{language}/edit', 'LanguageController@edit')->name('languages.edit');
+    Route::post('/{language}/update', 'LanguageController@update')->name('languages.update');
+    Route::delete('/{language}/delete', 'LanguageController@delete')->name('languages.delete');
 });
 
 Route::prefix('categoriesLang')->group(function () {
