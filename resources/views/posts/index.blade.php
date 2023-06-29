@@ -35,14 +35,14 @@
                                 <td>{{$post->id}}</td>
                                 <td>@foreach($categories as $category)
                                         @if($category->id == $post->category_id)
-                                            {{$category->image_path}}
+                                            {{$category->name}}
                                             <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
                                                  alt="imágenes categorías" style="width: 20%">
                                         @endif
                                     @endforeach</td>
-                                <td>{{$post->image_path}}
+                                <td>
                                     <img src="{{ asset('storage/images/posts/' . $post->image_path) }}"
-                                         alt="imágenes posts" style="width: 25%">
+                                         alt="imágenes posts" style="width: 40%">
                                 </td>
 
                                 <td>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Categorie;
+use App\Category;
 use App\Post;
 use App\PostLang;
 use App\Language;
@@ -88,7 +88,7 @@ class PostLangController extends Controller
     }
 
     public function show($id) {
-        $categoriesLang = Categorie::all();
+        $categoriesLang = Category::all();
         $postsLang = PostLang::findOrFail($id);
 
         return view('postsLang.show',['categoriesLang'=>$categoriesLang] ,compact('postsLang'));

@@ -46,7 +46,7 @@
                                     <td>
                                         @foreach($categories as $category)
                                             @if($category->id == $categoryLang->category_id)
-                                                {{$category->image_path}}
+                                                {{$category->name}}
                                                 <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
                                                      alt="imágenes categorías" style="width: 20%">
                                             @endif

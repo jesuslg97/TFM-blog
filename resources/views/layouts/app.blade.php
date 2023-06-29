@@ -74,8 +74,8 @@
                                     Categorías<span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li class="dropdown-item"><a href="{{ route('categories.index') }}">Categorías</a></li>
-                                    <li class="dropdown-item"><a href="{{ route('categoriesLang.index') }}">Idiomas de Categorías</a></li>
+                                    <li class="dropdown-item"><a href="{{ route('categories.index') }}">Imagen de Categorías</a></li>
+                                    <li class="dropdown-item"><a href="{{ route('categoriesLang.index') }}">Categorías multiidioma</a></li>
                                 </ul>
                             </li>
                             <li class="col-md-4 nav-item">
@@ -83,8 +83,8 @@
                                     Posts<span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li class="dropdown-item"><a href="{{ route('posts.index') }}">Posts</a></li>
-                                    <li class="dropdown-item"><a href="{{ route('postsLang.index') }}">Idiomas de Posts</a></li>
+                                    <li class="dropdown-item"><a href="{{ route('posts.index') }}">Imagen de Posts</a></li>
+                                    <li class="dropdown-item"><a href="{{ route('postsLang.index') }}">Posts multiidioma</a></li>
                                 </ul>
                             </li>
 

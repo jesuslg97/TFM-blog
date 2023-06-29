@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Categorie;
+use App\Category;
 use App\CategoryLang;
 
 use App\Post;
@@ -19,7 +19,7 @@ class PostController extends Controller
 
     public function index(Request $request){
 
-        $categories = Categorie::all();
+        $categories = Category::all();
 
         $postCategory = null;
         $postImage = null;
@@ -30,7 +30,7 @@ class PostController extends Controller
             $postImage = $request->postImage;
 
             if($request->has('postCategory')  && !empty($postCategory)){
-                $categoryId = Categorie::where('id','=',$postCategory)->get()->first();
+                $categoryId = Category::where('id','=',$postCategory)->get()->first();
                 if($categoryId){
                     $catId = $categoryId->id;
                 }else{
@@ -53,7 +53,7 @@ class PostController extends Controller
     }
 
     public function create(){
-        $categories = Categorie::all();
+        $categories = Category::all();
         $categoriesLang = CategoryLang::all();
 
         return view('posts.create',['categories'=> $categories, 'categoriesLang'=>$categoriesLang]);
@@ -79,7 +79,7 @@ class PostController extends Controller
     }
 
     public function edit(Post $post){
-        $categories = Categorie::all();
+        $categories = Category::all();
         $categoriesLang = CategoryLang::all();
 
         return view('posts.edit', ['post'=>$post, 'categories'=>$categories, 'categoriesLang'=>$categoriesLang]);

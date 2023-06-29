@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Categorie;
+use App\Category;
 use App\CategoryLang;
 use App\Language;
 use App\Post;
@@ -17,7 +17,7 @@ class CategoryLangController extends Controller
     const PAGINATE_SIZE = 10;
 
     public function index(Request $request){
-        $categories = Categorie::all();
+        $categories = Category::all();
         $languages = Language::all();
 
         $name = null;
@@ -34,11 +34,12 @@ class CategoryLangController extends Controller
 
         }
 
-        return view('categoriesLang.index', ['categoryLangs'=>$categoryLangs, 'name'=>$name, 'description'=>$description, 'categories'=>$categories,'languages'=>$languages]);
+        return view('categoriesLang.index', ['categoryLangs'=>$categoryLangs, 'name'=>$name,
+            'description'=>$description, 'categories'=>$categories,'languages'=>$languages]);
     }
 
     public function create(){
-        $categories = Categorie::all();
+        $categories = Category::all();
         $languages = Language::all();
         return view('categoriesLang.create',['categories'=>$categories,'languages'=>$languages]);
     }
@@ -57,7 +58,7 @@ class CategoryLangController extends Controller
     }
 
     public function edit(CategoryLang $categoryLang){
-        $categories = Categorie::all();
+        $categories = Category::all();
         $languages = Language::all();
 
         return view('categoriesLang.edit',['categoryLang'=>$categoryLang,'categories'=>$categories,'languages'=>$languages]);

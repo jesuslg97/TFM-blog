@@ -5,13 +5,18 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Categorie extends Model
+class Category extends Model
 {
     protected $table = 'categories';
     use SoftDeletes;
 
-    public function categorieLangs()
+    public function categoryLangs()
     {
         return $this->hasMany(CategoryLang::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }

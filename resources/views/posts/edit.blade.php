@@ -24,9 +24,9 @@
                             <option selected>Elige una categoría</option>
                             @foreach($categories as $category)
                                 @if($category->id == $post->category_id)
-                                    <option selected value="{{$category->id}}">{{$category->image_path}}</option>
+                                    <option selected value="{{$category->id}}">{{$category->name}}</option>
                                 @else
-                                    <option value="{{$category->id}}">{{$category->image_path}}</option>
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
                                 @endif
                             @endforeach
                         </select>

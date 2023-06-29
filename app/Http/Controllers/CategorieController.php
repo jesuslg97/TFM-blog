@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Categorie;
+use App\Category;
 use App\CategoryLang;
 use App\Post;
 use Illuminate\Http\Request;
@@ -19,17 +19,20 @@ class CategorieController extends Controller
 
     public function index(Request $request){
 
+        $name = null;
         $categoryImage = null;
-        if($request->has('categoryImage')) {
 
+        if($request->has('name') || $request->has('categoryImage')) {
+
+            $name = $request->name;
             $categoryImage = $request->categoryImage;
-            $categories = Categorie::where('image_path', 'like', '%'. $categoryImage . '%')->paginate(self::PAGINATE_SIZE);
+            $categories = Category::where('name', 'like', '%'. $name . '%')->paginate(self::PAGINATE_SIZE);
         } else {
-            $categories = Categorie::paginate(self::PAGINATE_SIZE);
+            $categories = Category::paginate(self::PAGINATE_SIZE);
 
         }
 
-        return view('categories.index', ['categories'=>$categories, 'categoryImage'=>$categoryImage]);
+        return view('categories.index', ['name'=>$name, 'categories'=>$categories, 'categoryImage'=>$categoryImage]);
     }
 
     public function create(){
@@ -39,7 +42,8 @@ class CategorieController extends Controller
     public function store(Request $request){
         $this->validateCategory($request)->validate();
 
-        $category = new Categorie();
+        $category = new Category();
+        $category->name = $request->name;
         $category->image_path = $request->categoryImage;
 
         if($request->hasFile("categoryImage")) {
@@ -54,12 +58,14 @@ class CategorieController extends Controller
         return redirect()->route('categories.index')->with('success', Lang::get('alerts.categories_created_successfully'));
     }
 
-    public function edit(Categorie $category){
+    public function edit(Category $category){
         return view('categories.edit', ['category'=>$category]);
     }
 
-    public function update(Request $request, Categorie $category){
+    public function update(Request $request, Category $category){
         $this->validateCategory($request)->validate();
+
+        $category->name = $request->name;
         $category->image_path = $request->categoryImage;
 
         if($request->hasFile("categoryImage")) {
@@ -74,7 +80,7 @@ class CategorieController extends Controller
         return redirect()->route('categories.index')->with('success', Lang::get('alerts.categories_update_successfully'));
     }
 
-    public function delete(Request $request, Categorie $category){
+    public function delete(Request $request, Category $category){
         if($category != null) {
             $category->delete();
             return redirect()->route('categories.index')->with('success', Lang::get('alerts.categories_delete_successfully'));
@@ -84,7 +90,7 @@ class CategorieController extends Controller
 
     public function show($id) {
         $categoryLang = CategoryLang::findOrFail($id);
-        $category = Categorie::findOrFail($id);
+        $category = Category::findOrFail($id);
         $posts = Post::all();
 
         return view('categories.show', ['posts'=>$posts],
@@ -93,6 +99,7 @@ class CategorieController extends Controller
 
     protected function validateCategory($request) {
         return Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255', 'min:1'],
             'categoryImage' => ['required', 'min:1']
         ]);
     }

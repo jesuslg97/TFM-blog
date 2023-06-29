@@ -10,7 +10,7 @@
 
             <div class="col-12 text-center mt-3">
                 <h1>{{__('string.list_title_category')}}</h1>
-                <hr class="teal accent-3 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
+                <hr class="teal accent-3 mt-0 d-inline-block mx-auto border-dark" style="width: 300px;">
             </div>
 
             <div class="col-12">
@@ -32,7 +32,7 @@
                         @foreach($categories as $category)
                             <tr>
                                 <td>{{$category->id}}</td>
-                                <td>{{$category->image_path}}
+                                <td>{{$category->name}}
                                     <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
                                          alt="imágenes categorías" style="width: 20%">
                                 </td>

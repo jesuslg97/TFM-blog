@@ -23,12 +23,12 @@ return [
     'search_btn' => 'Buscar',
 
     //TITLES
-    'list_title_category' =>'Lista de categorías',
-    'list_title_post' =>'Lista de posts',
+    'list_title_category' =>'Lista de imágenes de categorías',
+    'list_title_post' =>'Lista de imágenes de posts',
     'list_title_comment' =>'Lista de comentarios',
     'list_title_language' =>'Lista de idiomas',
-    'list_title_categoryLang' =>'Lista de idiomas de categorías',
-    'list_title_postLang' =>'Lista de idiomas de posts',
+    'list_title_categoryLang' =>'Lista de categorías multiidioma',
+    'list_title_postLang' =>'Lista de posts multiidioma',
 
     //TABLES
     'id_header' => 'id',
@@ -45,14 +45,15 @@ return [
     'post_image' => 'Imagen del post',
 
     //CATEGORIES
+    'category_name' => 'Nombre',
     'category_image' => 'Imagen',
-    'create_category' => 'Crear categoría',
-    'edit_category' => 'Editar categoría',
+    'create_category' => 'Crear imagen de la categoría',
+    'edit_category' => 'Editar imagen de la categoría',
 
     //POSTS
     'search_post_placeholder' => 'Buscar post',
-    'create_post' => 'Crear post',
-    'edit_post' => 'Editar post',
+    'create_post' => 'Crear imagen del post',
+    'edit_post' => 'Editar imagen del post',
 
     //COMMENTS
     'search_comment_placeholder' => 'Buscar comentario',
@@ -71,8 +72,8 @@ return [
 
     //CATEGORY_LANG
     'search_categoryLang_name_placeholder' => 'Buscar nombre del idioma de la categoría',
-    'create_categoryLang' => 'Crear idioma de la categoría',
-    'edit_categoryLang' => 'Editar idioma de la categoría',
+    'create_categoryLang' => 'Crear categoría multiidioma',
+    'edit_categoryLang' => 'Editar categoría multiidioma',
     'categoryLang_name' => 'Nombre',
     'categoryLang_description' => 'Descripción',
     'category_image_path' => 'Categoría',
@@ -80,8 +81,8 @@ return [
     //POST_LANG
     'search_postLang_title_placeholder' => 'Buscar título del idioma del post',
     'search_postLang_placeholder' => 'Buscar idiomas de posts',
-    'create_postLang' => 'Crear idiomas de posts',
-    'edit_postLang' => 'Editar idiomas de posts',
+    'create_postLang' => 'Crear posts multiidioma',
+    'edit_postLang' => 'Editar posts multiidioma',
     'postLang_title' => 'Título',
     'postLang_description' => 'Descripción',
     'postLang_information' => 'Información',

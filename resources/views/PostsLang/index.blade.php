@@ -26,8 +26,8 @@
                             <thead>
                             <th>{{__('string.id_header')}}</th>
                             <th>{{__('string.lang_name')}}</th>
-                            <th>{{__('string.post')}}</th>
                             <th>{{__('string.title')}}</th>
+                            <th>{{__('string.post')}}</th>
                             <th>{{__('string.description')}}</th>
                             <th>{{__('string.information')}}</th>
                             <th colspan="2">{{__('string.actions_header')}}</th>
@@ -44,16 +44,15 @@
                                             @endif
                                         @endforeach
                                     </td>
+                                    <td>{{$postLang->title}}</td>
                                     <td>
                                         @foreach($posts as $post)
                                             @if($post->id == $postLang->post_id)
-                                                {{$post->image_path}}
                                                 <img src="{{ asset('storage/images/posts/' . $post->image_path) }}"
                                                      alt="imágenes posts" style="width: 30%">
                                             @endif
                                         @endforeach
                                     </td>
-                                    <td>{{$postLang->title}}</td>
                                     <td>{{$postLang->description}}</td>
                                     <td>{{$postLang->information}}</td>
 

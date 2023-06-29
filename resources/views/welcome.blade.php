@@ -23,30 +23,12 @@
                     <div class="col-4">
                         <div class="card">
                             <div class="card-body text-center" style="border: 4px solid #F4600C;">
-                                @if($category->id == 1)
-                                    <h5 class="card-title"><strong>Seguridad</strong></h5>
-                                    <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
-                                         alt="imagen categoría seguridad" class="w-75">
-                                    <p class="card-text">Listado de los posts relacionados con la seguridad.</p>
-                                    <a class="btn text-white" style="background-color: #F4600C"
-                                       href="{{ route('categories.show', $category->id) }}">Posts sobre Seguridad</a>
-
-                                @elseif($category->id == 2)
-                                    <h5 class="card-title"><strong>Dispositivos/periféricos</strong></h5>
-                                    <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
-                                         alt="imagen categoría dispositivo/periferico" class="w-50">
-                                    <p class="card-text">Listado de los posts relacionados con los dispositivos.</p>
-                                    <a class="btn text-white" style="background-color: #F4600C"
-                                       href="{{ route('categories.show', $category->id) }}">Posts sobre Dispositivos/periféricos</a>
-
-                                @elseif($category->id == 3)
-                                    <h5 class="card-title"><strong>Noticias</strong></h5>
-                                    <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
-                                         alt="imagen categoría noticias" class="w-75">
-                                    <p class="card-text">Listado de los posts relacionados con noticias.</p>
-                                    <a class="btn text-white" style="background-color: #F4600C"
-                                       href="{{ route('categories.show', $category->id) }}">Posts sobre Noticias</a>
-                                @endif
+                                <h5 class="card-title"><strong>{{ $category->name }}</strong></h5>
+                                <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
+                                     alt="imágenes categorías" style="width: 60%">
+                                <p class="card-text">Listado de los posts relacionados con la {{ $category->name }}.</p>
+                                <a class="btn text-white" style="background-color: #F4600C"
+                                   href="{{ route('categories.show', $category->id) }}">Posts sobre {{ $category->name }}</a>
                             </div>
                         </div>
                     </div>
@@ -55,5 +37,4 @@
 
         </div>
     </div>
-
 @endsection
