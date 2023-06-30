@@ -9,9 +9,14 @@ class Comment extends Model
 {
     protected $table = 'comments';
 
-    public function User()
+    public function user()
     {
         return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function postLangs()
+    {
+        return $this->belongsTo(User::class,'postLang_id');
     }
 
 }

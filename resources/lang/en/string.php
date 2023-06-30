@@ -60,6 +60,7 @@ return [
     'create_comment' => 'Crear comentario',
     'edit_comment' => 'Editar comentario',
     'comment' => 'Comentario',
+    'postLang_id' => 'Post relacionado',
 
     //LANGUAGES
     'search_language_name_placeholder' => 'Buscar nombre del idioma',

@@ -21,6 +21,16 @@
                         <input id="userId" name="userId" type="hidden" value="{{\Illuminate\Support\Facades\Auth::id()}}">
                     </div>
 
+                    <div class="col-4 mb-2">
+                        <label for="postLangId" class="form-label">{{__('string.postLang_id')}}</label>
+                        <select name="postLangId" id="postLangId" class="form-select" aria-label="Default select example">
+                            <option selected>Elige un post</option>
+                            @foreach($postsLang as $postLang)
+                                <option value="{{$postLang->id}}">{{$postLang->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="col-12 mb-3">
                         <label for="comment" class="form-label">{{__('string.comment')}}</label>
                         <input id="comment" name="comment" type="text"

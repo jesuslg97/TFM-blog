@@ -13,9 +13,9 @@
                 <hr class="teal accent-3 mb-2 mt-0 d-inline-block mx-auto border-dark" style="width: 300px;">
 
                 <div class="row col-md-11 mt-5" style="text-align: left; margin-left: 5px">
-                    <h5 class="text-decoration-underline"><strong>{{ $postsLang->title }}</strong></h5>
-                    <span class="m-0">{{ $postsLang->description }}</span>
-                    <span class="m-0">{{ $postsLang->information }}</span>
+                    <h5 class="text-decoration-underline"><strong>{{ $postLang->title }}</strong></h5>
+                    <span class="m-0">{{ $postLang->description }}</span>
+                    <span class="m-0">{{ $postLang->information }}</span>
                 </div>
             </div>
 
@@ -27,13 +27,15 @@
 
                 <div class="m-2">
                     @foreach($comments as $comment)
-                        @foreach($users as $user)
-                            @if($user->id == $comment->user_id)
-                                <span><u>Comentario realizado por:</u> <strong>{{ $user->name }}</strong></span><br>
-                                <span>{{ $comment->comment }}</span><br>
-                                <hr class="mb-2 d-inline-block" style="border: 1px solid #F4600C; width: 300px;"><br>
-                          @endif
-                        @endforeach
+                        @if($comment->postLang_id == $postLang->id)
+                            @foreach($users as $user)
+                                @if($user->id == $comment->user_id)
+                                    <span><u>Comentario realizado por:</u> <strong>{{ $user->name }}</strong></span><br>
+                                    <span>{{ $comment->comment }}</span><br>
+                                    <hr class="mb-2 d-inline-block" style="border: 1px solid #F4600C; width: 300px;"><br>
+                                @endif
+                            @endforeach
+                        @endif
                     @endforeach
                 </div>
 

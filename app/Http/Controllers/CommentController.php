@@ -12,19 +12,21 @@ use \Validator;
 class CommentController extends Controller
 {
     public function create(){
-        return view('comments.create');
+        $postsLang = PostLang::all();
+
+        return view('comments.create', ['postsLang'=>$postsLang]);
     }
 
     public function store(Request $request){
         $this->validatePostLang($request)->validate();
-        $postsLang = PostLang::all();
 
         $comment = new Comment();
         $comment->comment = $request->comment;
         $comment->user_id = $request->userId;
+        $comment->postLang_id = $request->postLangId;
         $comment->save();
 
-        return redirect()->route('postsLang.show', ['postsLang'=>$postsLang])->with('success', Lang::get('alerts.postsLang_created_successfully'));
+        return redirect()->route('welcome')->with('success', Lang::get('alerts.postsLang_created_successfully'));
     }
 
     protected function validatePostLang($request) {

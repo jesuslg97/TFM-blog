@@ -91,12 +91,12 @@ class PostLangController extends Controller
 
     public function show($id) {
         $categoriesLang = Category::all();
-        $postsLang = PostLang::findOrFail($id);
+        $postLang = PostLang::findOrFail($id);
         $comments = Comment::all();
         $users = User::all();
 
         return view('postsLang.show',['categoriesLang'=>$categoriesLang, 'comments'=>$comments,
-            'users'=>$users], compact('postsLang'));
+            'users'=>$users], compact('postLang'));
     }
 
     protected function validatePostLang($request) {
