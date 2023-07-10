@@ -94,16 +94,17 @@ class PostLangController extends Controller
         $postLang = PostLang::findOrFail($id);
         $comments = Comment::all();
         $users = User::all();
+        $posts = Post::all();
 
         return view('postsLang.show',['categoriesLang'=>$categoriesLang, 'comments'=>$comments,
-            'users'=>$users], compact('postLang'));
+            'users'=>$users, 'posts'=>$posts], compact('postLang'));
     }
 
     protected function validatePostLang($request) {
         return Validator::make($request->all(), [
             'title' => ['required', 'string', 'max:255', 'min:1'],
             'description' => ['required', 'string', 'max:255', 'min:1'],
-            'information' => ['required', 'string', 'max:255', 'min:1']
+            'information' => ['required', 'string', 'max:2000', 'min:1']
         ]);
     }
 }

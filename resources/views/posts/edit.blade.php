@@ -17,26 +17,43 @@
                 @csrf
                 <div class="row col-12 offset-2">
 
-                    <div class="col-4 mt-3">
-                        <label for="postCategory" class="form-label">{{__('string.post_category')}}</label>
-                        <br>
-                        <select name="postCategory" id="postCategory" class="form-select" aria-label="Default select example">
-                            <option selected>Elige una categoría</option>
-                            @foreach($categories as $category)
-                                @if($category->id == $post->category_id)
-                                    <option selected value="{{$category->id}}">{{$category->name}}</option>
-                                @else
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
-                                @endif
-                            @endforeach
-                        </select>
+                    <div class="row col-12">
+                        <div class="col-4 mt-3">
+                            <label class="form-label">{{__('string.author_name')}}</label>
+                            <input type="text" placeholder="{{__(\Illuminate\Support\Facades\Auth::user()->name)}}"
+                                   class="form-control" disabled>
+                        </div>
+
+                        <div class="col-4 mt-3">
+                            <label class="form-label">{{__('string.author_email')}}</label>
+                            <input type="text" placeholder="{{\Illuminate\Support\Facades\Auth::user()->email}}"
+                                   class="form-control" disabled>
+                        </div>
                     </div>
 
-                    <div class="col-4 mt-3">
-                        <label for="postImage" class="form-label">{{__('string.post_image')}}</label>
-                        <input id="postImage" name="postImage" type="file"
-                               placeholder="{{__('string.post_image')}}" class="form-control" value="{{$post->image_path}}" required>
+                    <div class="row col-12">
+                        <div class="col-4 mt-3">
+                            <label for="postCategory" class="form-label">{{__('string.post_category')}}</label>
+                            <br>
+                            <select name="postCategory" id="postCategory" class="form-select" aria-label="Default select example">
+                                <option selected>Elige una categoría</option>
+                                @foreach($categories as $category)
+                                    @if($category->id == $post->category_id)
+                                        <option selected value="{{$category->id}}">{{$category->name}}</option>
+                                    @else
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col-4 mt-3">
+                            <label for="postImage" class="form-label">{{__('string.post_image')}}</label>
+                            <input id="postImage" name="postImage" type="file"
+                                   placeholder="{{__('string.post_image')}}" class="form-control" value="{{$post->image_path}}" required>
+                        </div>
                     </div>
+
                 </div>
 
                 <div class="col-12 text-center mt-2 mb-2">

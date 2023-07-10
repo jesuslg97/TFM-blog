@@ -6,6 +6,7 @@ use App\Category;
 use App\CategoryLang;
 
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
@@ -53,10 +54,10 @@ class PostController extends Controller
     }
 
     public function create(){
-        $categories = Category::all();
         $categoriesLang = CategoryLang::all();
+        $users = User::all();
 
-        return view('posts.create',['categories'=> $categories, 'categoriesLang'=>$categoriesLang]);
+        return view('posts.create',['categoriesLang'=>$categoriesLang, 'users'=>$users]);
     }
 
     public function store(Request $request){
@@ -64,6 +65,7 @@ class PostController extends Controller
 
         $post = new Post();
         $post->category_id = $request->postCategory;
+        $post->author_id = $request->authorId;
         $post->image_path = $request->postImage;
 
         if($request->hasFile("postImage")) {

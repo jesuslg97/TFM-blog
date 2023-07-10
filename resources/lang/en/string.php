@@ -54,6 +54,8 @@ return [
     'search_post_placeholder' => 'Buscar post',
     'create_post' => 'Crear imagen del post',
     'edit_post' => 'Editar imagen del post',
+    'author_name' => 'Nombre del autor',
+    'author_email' => 'Email del autor',
 
     //COMMENTS
     'search_comment_placeholder' => 'Buscar comentario',
