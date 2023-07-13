@@ -59,7 +59,7 @@
                                         <a class="btn btn-success mb-1" href="{{ route('categoriesLang.edit', $categoryLang->id) }}">
                                             <i class="bi bi-pencil"></i> Editar</a>
 
-                                        <form id="delete-form-{{ $categoryLang->id }}" action="{{ route('categoriesLang.delete', [$categoryLang]) }}"
+                                        <form id="delete-form-{{ $categoryLang->id, $category->id }}" action="{{ route('categoriesLang.delete', [$categoryLang, $category]) }}"
                                               method="post" style="display: inline-block">
                                             {{ method_field('delete') }}
                                             {{ csrf_field() }}

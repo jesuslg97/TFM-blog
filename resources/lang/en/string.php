@@ -45,7 +45,7 @@ return [
     'post_image' => 'Imagen del post',
 
     //CATEGORIES
-    'category_name' => 'Nombre',
+    'category_name' => 'Nombre de la Imagen',
     'category_image' => 'Imagen',
     'create_category' => 'Crear imagen de la categoría',
     'edit_category' => 'Editar imagen de la categoría',
@@ -77,7 +77,7 @@ return [
     'search_categoryLang_name_placeholder' => 'Buscar nombre del idioma de la categoría',
     'create_categoryLang' => 'Crear categoría multiidioma',
     'edit_categoryLang' => 'Editar categoría multiidioma',
-    'categoryLang_name' => 'Nombre',
+    'categoryLang_name' => 'Nombre de la Categoría',
     'categoryLang_description' => 'Descripción',
     'category_image_path' => 'Categoría',
 

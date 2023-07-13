@@ -10,6 +10,7 @@ use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use \Validator;
 
 class CategoryLangController extends Controller
@@ -47,11 +48,24 @@ class CategoryLangController extends Controller
     public function store(Request $request){
         $this->validateCategoryLang($request)->validate();
 
+        $category = new Category();
+        $category->name = $request->nameImg;
+        $category->image_path = $request->categoryImage;
+
+        if($request->hasFile("categoryImage")) {
+            $imagen = $request->file("categoryImage");
+            $nameImage = $imagen->getClientOriginalName();
+            Storage::putFileAs('public/images/categories', (string)$imagen, $nameImage);
+            $category->image_path = $nameImage;
+        }
+        $category->save();
+
         $categoryLang = new CategoryLang();
         $categoryLang->name = $request->name;
         $categoryLang->description = $request->description;
-        $categoryLang->category_id = $request->categoryId;
+        $categoryLang->category_id = $category->id;
         $categoryLang->lang_id = $request->langID;
+
         $categoryLang->save();
 
         return redirect()->route('categoriesLang.index')->with('success', Lang::get('alerts.categoriesLang_created_successfully'));
@@ -67,17 +81,35 @@ class CategoryLangController extends Controller
     public function update(Request $request, CategoryLang $categoryLang){
         $this->validateCategoryLang($request)->validate();
 
+        $category = new Category();
+        $category->name = $request->nameImg;
+        $category->image_path = $request->categoryImage;
+
+        if($request->hasFile("categoryImage")) {
+            $imagen = $request->file("categoryImage");
+            $nameImage = $imagen->getClientOriginalName();
+            Storage::putFileAs('public/images/categories', (string)$imagen, $nameImage);
+            $category->image_path = $nameImage;
+        }
+        $category->save();
+
         $categoryLang->name = $request->name;
         $categoryLang->description = $request->description;
         $categoryLang->category_id = $request->categoryId;
         $categoryLang->lang_id = $request->langID;
+
         $categoryLang->save();
 
         return redirect()->route('categoriesLang.index')->with('success', Lang::get('alerts.categoriesLang_update_successfully'));
     }
 
-    public function delete(Request $request, CategoryLang $categoryLang){
+    public function delete(Request $request, CategoryLang $categoryLang, Category $category){
+        if($category != null) {
+            $category->delete();
+        }
+
         if($categoryLang != null) {
+            $category->delete();
             $categoryLang->delete();
             return redirect()->route('categoriesLang.index')->with('success', Lang::get('alerts.categoriesLang_delete_successfully'));
         }
@@ -94,6 +126,8 @@ class CategoryLangController extends Controller
 
     protected function validateCategoryLang($request) {
         return Validator::make($request->all(), [
+            'nameImg' => ['required', 'string', 'max:255', 'min:1'],
+            'categoryImage' => ['required', 'min:1'],
             'name' => ['required', 'string', 'max:255', 'min:1'],
             'description' => ['required', 'string', 'max:255', 'min:1']
         ]);

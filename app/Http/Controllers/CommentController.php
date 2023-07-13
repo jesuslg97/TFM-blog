@@ -26,7 +26,7 @@ class CommentController extends Controller
         $comment->postLang_id = $request->postLangId;
         $comment->save();
 
-        return redirect()->route('welcome')->with('success', Lang::get('alerts.postsLang_created_successfully'));
+        return redirect()->route('postsLang.show', $comment->postLang_id)->with('success', Lang::get('alerts.comments_created_successfully'));
     }
 
     protected function validatePostLang($request) {

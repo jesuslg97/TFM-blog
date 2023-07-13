@@ -13,9 +13,22 @@
                 <hr class="teal accent-3 mt-0 d-inline-block mx-auto border-dark" style="width: 200px;">
             </div>
 
-            <form name="create_categoryLang" action="{{ route('categoriesLang.store') }}" method="post">
+            <form name="create_categoryLang" enctype="multipart/form-data" action="{{ route('categoriesLang.store') }}" method="post">
                 @csrf
                 <div class="row col-12">
+
+                    <div class="row col-12 offset-2">
+                        <div class="col-4 mt-3">
+                            <label for="nameImg" class="form-label">{{__('string.category_name')}}</label>
+                            <input id="nameImg" name="nameImg" type="text"
+                                   placeholder="{{__('string.category_name')}}" class="form-control" required>
+                        </div>
+
+                        <div class="col-4 mt-3">
+                            <label for="categoryImage" class="form-label">{{__('string.category_image')}}</label>
+                            <input id="categoryImage" name="categoryImage" type="file" class="form-control" required>
+                        </div>
+                    </div>
 
                     <div class="row col-12 offset-2">
                         <div class="col-4 mt-3">
@@ -33,8 +46,7 @@
 
                     <div class="row col-12 offset-2">
                         <div class="col-4 mt-2">
-                            <label for="langID" class="form-label">{{__('string.lang_name')}}</label>
-                            <br>
+                            <label for="langID" class="form-label">{{__('string.lang_name')}}</label><br>
                             <select name="langID" id="langID" class="form-select" aria-label="Default select example">
                                 <option selected>Elige un idioma</option>
                                 @foreach($languages as $language)
@@ -43,16 +55,6 @@
                             </select>
                         </div>
 
-                        <div class="col-4 mt-2">
-                            <label for="categoryId" class="form-label">{{__('string.category_image_path')}}</label>
-                            <br>
-                            <select name="categoryId" id="categoryId" class="form-select" aria-label="Default select example">
-                                <option selected>Elige una categoría</option>
-                                @foreach($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
                     </div>
 
                 </div>
