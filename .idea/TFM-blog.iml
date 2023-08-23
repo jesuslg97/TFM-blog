@@ -97,6 +97,12 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/uuid" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fakerphp/faker" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/ui" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ckeditor/adapters" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ckeditor/lang" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ckeditor/plugins" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ckeditor/samples" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ckeditor/skins" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ckeditor/vendor" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

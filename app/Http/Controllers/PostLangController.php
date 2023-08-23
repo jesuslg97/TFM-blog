@@ -25,13 +25,11 @@ class PostLangController extends Controller
         $languages = Language::all();
 
         $title = null;
-        $description = null;
         $information = null;
 
-        if($request->has('title') || $request->has('description') || $request->has('information')) {
+        if($request->has('title') || $request->has('information')) {
 
             $title = $request->title;
-            $description = $request->description;
             $information = $request->information;
 
             $postLangs = PostLang::where('title', 'like', '%'. $title . '%')->paginate(self::PAGINATE_SIZE);
@@ -40,7 +38,7 @@ class PostLangController extends Controller
 
         }
 
-        return view('postsLang.index', ['postLangs'=>$postLangs, 'title'=>$title, 'description'=>$description,
+        return view('postsLang.index', ['postLangs'=>$postLangs, 'title'=>$title,
             'information'=>$information ,'posts'=>$posts,'languages'=>$languages]);
     }
 
@@ -73,7 +71,6 @@ class PostLangController extends Controller
 
         $postLang = new PostLang();
         $postLang->title = $request->title;
-        $postLang->description = $request->description;
         $postLang->information = $request->information;
         $postLang->post_id = $post->id;
         $postLang->lang_id = $request->langID;
@@ -110,7 +107,6 @@ class PostLangController extends Controller
         $post->save();
 
         $postLang->title = $request->title;
-        $postLang->description = $request->description;
         $postLang->information = $request->information;
         $postLang->post_id = $post->id;
         $postLang->lang_id = $request->langID;
@@ -142,8 +138,7 @@ class PostLangController extends Controller
         return Validator::make($request->all(), [
             'postImage' => ['required', 'min:1'],
             'title' => ['required', 'string', 'max:255', 'min:1'],
-            'description' => ['required', 'string', 'max:255', 'min:1'],
-            'information' => ['required', 'string', 'max:2000', 'min:1']
+            'information' => ['required', 'string', 'min:1']
         ]);
     }
 }

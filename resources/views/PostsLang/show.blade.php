@@ -36,9 +36,11 @@
                     <u>Para cualquier duda contacte con el autor del post mediante su correo electrónico.</u>
                 </span>
 
-                <div class="row col-md-11 mt-3" style="text-align: left; margin-left: 5px">
-                    <h5 class="text-decoration-underline"><strong>{{ $postLang->description }}</strong></h5>
-                    <span class="text-justify mb-2">{{ $postLang->information }}</span>
+                <div class="row col-md-11 mt-3" style="text-align: left;">
+                    <div class="row col-12">
+                        <span class="text-justify mb-2">{!! $postLang->information !!}</span>
+                    </div>
+
                 </div>
             </div>
 

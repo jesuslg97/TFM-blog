@@ -36,13 +36,13 @@
                         </div>
 
                         <div class="row col-12">
-                            <div class="col-4 mt-3">
+                            <div class="col-3 mt-3">
                                 <label for="postImage" class="form-label">{{__('string.post_image')}}</label>
                                 <input id="postImage" name="postImage" type="file"
                                        placeholder="{{__('string.post_image')}}" class="form-control" required>
                             </div>
 
-                            <div class="col-4 mt-3">
+                            <div class="col-3 mt-3">
                                 <label for="postCategory" class="form-label">{{__('string.post_category')}}</label>
                                 <br>
                                 <select name="postCategory" id="postCategory" class="form-select" aria-label="Default select example">
@@ -52,32 +52,8 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div>
 
-                        <div class="row col-12">
-                            <div class="col-4 mt-3">
-                                <label for="title" class="form-label">{{__('string.postLang_title')}}</label>
-                                <input id="title" name="title" type="text"
-                                       placeholder="{{__('string.postLang_title')}}" class="form-control" required>
-                            </div>
-
-                            <div class="col-4 mt-3">
-                                <label for="description" class="form-label">{{__('string.postLang_description')}}</label>
-                                <input id="description" name="description" type="text"
-                                       placeholder="{{__('string.postLang_description')}}" class="form-control" required>
-                            </div>
-                        </div>
-
-                        <div class="row col-12">
-                            <div class="col-8 mt-2">
-                                <label for="information" class="form-label">{{__('string.postLang_information')}}</label>
-                                <input id="information" name="information" type="text"
-                                       placeholder="{{__('string.postLang_information')}}" class="form-control" required>
-                            </div>
-                        </div>
-
-                        <div class="row col-12">
-                            <div class="col-4 mt-2">
+                            <div class="col-3 mt-3">
                                 <label for="langID" class="form-label">{{__('string.lang_name')}}</label>
                                 <br>
                                 <select name="langID" id="langID" class="form-select" aria-label="Default select example">
@@ -88,6 +64,22 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="row col-12">
+                            <div class="col-8 mt-3">
+                                <label for="title" class="form-label">{{__('string.postLang_title')}}</label>
+                                <input id="title" name="title" type="text"
+                                       placeholder="{{__('string.postLang_title')}}" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row col-12">
+                            <div class="col-8 mt-2">
+                                <label for="information" class="form-label">{{__('string.postLang_information')}}</label>
+                                <textarea class="ckeditor form-control" name="information" id="information" rows="5" cols="80"></textarea>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
