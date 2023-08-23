@@ -74,11 +74,13 @@ class CategoryLangController extends Controller
     public function edit(CategoryLang $categoryLang){
         $categories = Category::all();
         $languages = Language::all();
+        $category = Category::findOrFail($categoryLang);
 
-        return view('categoriesLang.edit',['categoryLang'=>$categoryLang,'categories'=>$categories,'languages'=>$languages]);
+        return view('categoriesLang.edit',['categoryLang'=>$categoryLang,'categories'=>$categories,
+            'languages'=>$languages], compact('category'));
     }
 
-    public function update(Request $request, CategoryLang $categoryLang){
+    public function update(Request $request, CategoryLang $categoryLang, Category $category){
         $this->validateCategoryLang($request)->validate();
 
         $category = new Category();
@@ -95,7 +97,7 @@ class CategoryLangController extends Controller
 
         $categoryLang->name = $request->name;
         $categoryLang->description = $request->description;
-        $categoryLang->category_id = $request->categoryId;
+        $categoryLang->category_id = $category->id;
         $categoryLang->lang_id = $request->langID;
 
         $categoryLang->save();

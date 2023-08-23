@@ -39,7 +39,8 @@
                                             <img src="{{ asset('storage/images/categories/' . $category->image_path) }}"
                                                  alt="imágenes categorías" style="width: 20%">
                                         @endif
-                                    @endforeach</td>
+                                    @endforeach
+                                </td>
                                 <td>
                                     <img src="{{ asset('storage/images/posts/' . $post->image_path) }}"
                                          alt="imágenes posts" style="width: 40%">

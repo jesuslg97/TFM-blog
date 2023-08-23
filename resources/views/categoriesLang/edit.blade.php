@@ -19,15 +19,32 @@
 
                     <div class="row col-12 offset-2">
                         <div class="col-4 mt-3">
+                            <label for="nameImg" class="form-label">{{__('string.category_name')}}</label>
+                            <input id="nameImg" name="nameImg" type="text"
+                                   placeholder="{{__('string.category_name')}}" class="form-control"
+                                   value="" required>
+                        </div>
+
+                        <div class="col-4 mt-3">
+                            <label for="categoryImage" class="form-label">{{__('string.category_image')}}</label>
+                            <input id="categoryImage" name="categoryImage" type="file" class="form-control"
+                                   value="" required>
+                        </div>
+                    </div>
+
+                    <div class="row col-12 offset-2">
+                        <div class="col-4 mt-3">
                             <label for="name" class="form-label">{{__('string.categoryLang_name')}}</label>
                             <input id="name" name="name" type="text"
-                                   placeholder="{{__('string.categoryLang_name')}}" class="form-control" value="{{$categoryLang->name}}" required>
+                                   placeholder="{{__('string.categoryLang_name')}}" class="form-control"
+                                   value="{{$categoryLang->name}}" required>
                         </div>
 
                         <div class="col-4 mt-3">
                             <label for="description" class="form-label">{{__('string.categoryLang_description')}}</label>
                             <input id="description" name="description" type="text"
-                                   placeholder="{{__('string.categoryLang_description')}}" class="form-control" value="{{$categoryLang->description}}" required>
+                                   placeholder="{{__('string.categoryLang_description')}}" class="form-control"
+                                   value="{{$categoryLang->description}}" required>
                         </div>
                     </div>
 
@@ -47,20 +64,6 @@
                             </select>
                         </div>
 
-                        <div class="col-4 mt-2">
-                            <label for="categoryId" class="form-label">{{__('string.category_image_path')}}</label>
-                            <br>
-                            <select name="categoryId" id="categoryId" class="form-select" aria-label="Default select example">
-
-                                @foreach($categories as $category)
-                                    @if($category->id == $categoryLang->category_id)
-                                        <option selected value="{{$category->id}}">{{$category->name}}</option>
-                                    @else
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                    @endif
-                                @endforeach
-                            </select>
-                        </div>
                     </div>
 
                 </div>

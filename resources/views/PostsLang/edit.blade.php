@@ -18,56 +18,83 @@
                 <div class="row col-12">
 
                     <div class="row col-12 offset-2">
-                        <div class="col-4 mt-3">
-                            <label for="title" class="form-label">{{__('string.postLang_title')}}</label>
-                            <input id="title" name="title" type="text"
-                                   placeholder="{{__('string.postLang_title')}}" class="form-control" value="{{$postLang->title}}" required>
+                        <input id="authorId" name="authorId" type="hidden"
+                               value="{{\Illuminate\Support\Facades\Auth::id()}}" class="form-control">
+
+                        <div class="row col-12">
+                            <div class="col-4 mt-3">
+                                <label class="form-label">{{__('string.author_name')}}</label>
+                                <input type="text" placeholder="{{__(\Illuminate\Support\Facades\Auth::user()->name)}}"
+                                       class="form-control" disabled>
+                            </div>
+
+                            <div class="col-4 mt-3">
+                                <label class="form-label">{{__('string.author_email')}}</label>
+                                <input type="text" placeholder="{{\Illuminate\Support\Facades\Auth::user()->email}}"
+                                       class="form-control" disabled>
+                            </div>
                         </div>
 
-                        <div class="col-4 mt-3">
-                            <label for="description" class="form-label">{{__('string.postLang_description')}}</label>
-                            <input id="description" name="description" type="text"
-                                   placeholder="{{__('string.$postLang_description')}}" class="form-control" value="{{$postLang->description}}" required>
-                        </div>
-                    </div>
+                        <div class="row col-12">
+                            <div class="col-4 mt-3">
+                                <label for="postImage" class="form-label">{{__('string.post_image')}}</label>
+                                <input id="postImage" name="postImage" type="file"
+                                       placeholder="{{__('string.post_image')}}" class="form-control" required>
+                            </div>
 
-                    <div class="row col-12 offset-2">
-                        <div class="col-8 mt-2">
-                            <label for="information" class="form-label">{{__('string.postLang_information')}}</label>
-                            <input id="information" name="information" type="text"
-                                   placeholder="{{__('string.postLang_information')}}" class="form-control" value="{{$postLang->information}}" required>
-                        </div>
-                    </div>
-
-                    <div class="row col-12 offset-2">
-                        <div class="col-4 mt-2">
-                            <label for="langID" class="form-label">{{__('string.lang_name')}}</label>
-                            <br>
-                            <select name="langID" id="langID" class="form-select" aria-label="Default select example">
-
-                                @foreach($languages as $language)
-                                    @if($language->id == $postLang->lang_id)
-                                        <option selected value="{{$language->id}}">{{$language->name}}</option>
-                                    @else
-                                        <option value="{{$language->id}}">{{$language->name}}</option>
-                                    @endif
-                                @endforeach
-                            </select>
+                            <div class="col-4 mt-3">
+                                <label for="postCategory" class="form-label">{{__('string.post_category')}}</label>
+                                <br>
+                                <select name="postCategory" id="postCategory" class="form-select" aria-label="Default select example">
+                                    <option selected>Elige una categoría</option>
+                                    @foreach($categories as $category)
+                                        @if($category->id == $postLang->post_id)
+                                            <option selected value="{{$category->id}}">{{$category->name}}</option>
+                                        @else
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="col-4 mt-2">
-                            <label for="postId" class="form-label">{{__('string.postLang_image_path')}}</label>
-                            <br>
-                            <select name="postId" id="postId" class="form-select" aria-label="Default select example">
+                        <div class="row col-12">
+                            <div class="col-4 mt-3">
+                                <label for="title" class="form-label">{{__('string.postLang_title')}}</label>
+                                <input id="title" name="title" type="text"
+                                       placeholder="{{__('string.postLang_title')}}" class="form-control" value="{{$postLang->title}}" required>
+                            </div>
 
-                                @foreach($posts as $post)
-                                    @if($post->id == $postLang->post_id)
-                                        <option selected value="{{$post->id}}">{{$post->image_path}}</option>
-                                    @else
-                                        <option value="{{$post->id}}">{{$post->image_path}}</option>
-                                    @endif
-                                @endforeach
-                            </select>
+                            <div class="col-4 mt-3">
+                                <label for="description" class="form-label">{{__('string.postLang_description')}}</label>
+                                <input id="description" name="description" type="text"
+                                       placeholder="{{__('string.$postLang_description')}}" class="form-control" value="{{$postLang->description}}" required>
+                            </div>
+                        </div>
+
+                        <div class="row col-12">
+                            <div class="col-8 mt-2">
+                                <label for="information" class="form-label">{{__('string.postLang_information')}}</label>
+                                <input id="information" name="information" type="text"
+                                       placeholder="{{__('string.postLang_information')}}" class="form-control" value="{{$postLang->information}}" required>
+                            </div>
+                        </div>
+
+                        <div class="row col-12">
+                            <div class="col-4 mt-2">
+                                <label for="langID" class="form-label">{{__('string.lang_name')}}</label>
+                                <br>
+                                <select name="langID" id="langID" class="form-select" aria-label="Default select example">
+                                    @foreach($languages as $language)
+                                        @if($language->id == $postLang->lang_id)
+                                            <option selected value="{{$language->id}}">{{$language->name}}</option>
+                                        @else
+                                            <option value="{{$language->id}}">{{$language->name}}</option>
+                                       @endif
+                                    @endforeach
+                                </select>
+                            </div>
+
                         </div>
                     </div>
 
