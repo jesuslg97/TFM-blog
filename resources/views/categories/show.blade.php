@@ -19,14 +19,6 @@
                         en los dispositivos tecnológicos, ya sea para describir consejos, realizar cambios...</p>
                 </div>
 
-                <div class="ml-3">
-                    <p>
-                        Para crear un nuevo post pulse en el siguiente botón:
-                        <a class="btn btn-dark text-white" href="{{ route('postsLang.create') }}">Crear Post</a>
-                    </p>
-                </div>
-
-
                     <div class="row col-12 d-flex align-items-center justify-content-center">
                         @foreach($category->posts as $post)
                             <div class="col-4">
