@@ -34,7 +34,9 @@
 <body class="container-fluid">
 <div class="flex-center position-ref full-height">
     <div id="app" class="content">
-        @include('layouts.app')
+        <div class="col-12">
+            @include('partials.navbar')
+        </div>
         @include('partials.alerts')
         @yield('content')
         @include('partials.footer')

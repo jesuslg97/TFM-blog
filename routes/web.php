@@ -11,15 +11,13 @@
 |
 */
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
-//Route::get('/login', 'Auth\LoginController@login')->name('login');
-//Route::get('/register', 'Auth\RegisterController@register')->name('register');
 
-Route::get('/welcome', 'Controller@welcome')->name('welcome');
+Route::get('/', 'Controller@welcome')->name('welcome');
 
 Route::get('/last_post', 'Controller@last_post')->name('last_post');
 

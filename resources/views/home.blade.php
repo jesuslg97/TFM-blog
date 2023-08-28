@@ -4,8 +4,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Dashboard</div>
+                <div class="card mt-2">
+                    <div class="card-header" style="background-color: #FAEBD7">
+                        <strong>¡Bienvenido!</strong>
+                    </div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -14,7 +16,10 @@
                             </div>
                         @endif
 
-                        You are logged in!
+                        <span>
+                            <strong>¡Felicidades! Se ha logueado correctamente en nuestro Blog,
+                            disfrute al máximo de este sitio web. Saludos.</strong>
+                        </span>
                     </div>
                 </div>
             </div>

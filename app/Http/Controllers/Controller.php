@@ -21,37 +21,25 @@ class Controller extends BaseController
     const PAGINATE_SIZE = 5;
 
     public function welcome(){
-        $categoriesLang = CategoryLang::all();
         $categories = Category::all();
 
-        return view('welcome',['categoriesLang'=>$categoriesLang, 'categories'=>$categories]);
-    }
-    public function app(){
-        $categoriesLang = Category::all();
-
-        return view('welcome',['categoriesLang'=>$categoriesLang]);
+        return view('welcome',['categories'=>$categories]);
     }
 
     public function last_post() {
-        $categoriesLang = Category::all();
         $posts = Post::all();
         $languages = Language::all();
 
         $postLangs = PostLang::paginate(self::PAGINATE_SIZE);
 
-        return view('last_post', ['categoriesLang'=>$categoriesLang,
-            'postLangs'=>$postLangs ,'posts'=>$posts,'languages'=>$languages]);
+        return view('last_post', ['postLangs'=>$postLangs ,'posts'=>$posts,'languages'=>$languages]);
     }
 
     public function aboutUs() {
-        $categoriesLang = Category::all();
-
-        return view('aboutUs', ['categoriesLang'=>$categoriesLang]);
+        return view('aboutUs');
     }
 
     public function contact() {
-        $categoriesLang = Category::all();
-
-        return view('contact', ['categoriesLang'=>$categoriesLang]);
+        return view('contact');
     }
 }

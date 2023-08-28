@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Categorie;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -70,11 +69,5 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-    }
-
-    public function register() {
-        $categoriesLang = Categorie::all();
-
-        return view('auth\register', ['categoriesLang'=>$categoriesLang]);
     }
 }
