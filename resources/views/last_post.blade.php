@@ -22,8 +22,6 @@
                         <th>{{__('string.lang_name')}}</th>
                         <th>{{__('string.post')}}</th>
                         <th>{{__('string.title')}}</th>
-                        <th>{{__('string.description')}}</th>
-                        <th>{{__('string.information')}}</th>
                         <th colspan="2">{{__('string.actions_header')}}</th>
                         </thead>
 
@@ -48,8 +46,6 @@
                                     @endforeach
                                 </td>
                                 <td>{{$postLang->title}}</td>
-                                <td>{{$postLang->description}}</td>
-                                <td>{{$postLang->information}}</td>
 
                                 <td>
                                     <a class="btn btn-secondary mb-1" href="{{ route('postsLang.show', $postLang->id) }}">Ver</a>
